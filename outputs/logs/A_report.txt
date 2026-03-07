@@ -1,0 +1,19 @@
+TICK     | ID   | EVENTO                    | POSIZIONE    | BATT   | CARICO
+----------------------------------------------------------------------------
+0        | 1    | Stato: EXPLORE            | (0,1)        | 499    | NO
+1        | 2    | Stato: EXPLORE            | (1,0)        | 499    | NO
+4        | 3    | Stato: EXPLORE            | (0,1)        | 499    | NO
+5        | 4    | Stato: EXPLORE            | (0,1)        | 499    | NO
+6        | 5    | Stato: DEPLOY             | (0,0)        | 499    | NO
+7        | 5    | Stato: EXPLORE            | (0,1)        | 498    | NO
+25       | 4    | Stato: MOVE_TO_OBJECT     | (3,8)        | 479    | NO
+29       | 4    | RACCOLTA OGGETTO          | (4,10)       | 475    | SI
+29       | 1    | Stato: MOVE_TO_OBJECT     | (4,1)        | 470    | NO
+37       | 3    | Stato: MOVE_TO_OBJECT     | (8,1)        | 466    | NO
+330      | 5    | Stato: STANDBY            | (13,4)       | 175    | NO
+331      | 5    | Stato: EXPLORE            | (13,5)       | 174    | NO
+490      | 5    | !!! EMERGENCY LOW BATT !!! | (19,21)      | 15     | NO
+492      | 1    | !!! EMERGENCY LOW BATT !!! | (4,9)        | 7      | NO
+493      | 2    | !!! EMERGENCY LOW BATT !!! | (10,19)      | 7      | NO
+498      | 4    | !!! EMERGENCY LOW BATT !!! | (4,10)       | 6      | NO
+499      | 3    | !!! EMERGENCY LOW BATT !!! | (4,11)       | 4      | NO
