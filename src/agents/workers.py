@@ -13,11 +13,25 @@ class Worker1(BaseAgent):
 
     def decide_action(self, env, tick):
         self.check_battery(env)
-         # 1. Comunicazione Multi-Agente Distribuita (Fase 5 Decentralizzata)
-        from src.communication import get_agents_in_radius
+        # 1. Comunicazione Multi-Agente Distribuita (Fase 5 FIPA-ACL)
+        from src.communication import get_agents_in_radius, create_inform_message
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
+        
         for neighbor in neighbors:
-            self.merge_knowledge(neighbor.local_map, tick)
+            # L'agente vicino costruisce il payload FIPA-ACL da inviare a me
+            content = {
+                'map': neighbor.local_map,
+                'ts': tick
+            }
+            msg = create_inform_message(
+                sender_id=neighbor.id, 
+                receiver_id=self.id, 
+                content=content
+            )
+            
+            # Parsing del messaggio: se è un INFORM ed è indirizzato a me, faccio il merge
+            if msg['performative'] == 'INFORM' and msg['receiver'] == self.id:
+                self.merge_knowledge(msg['content']['map'], tick)
         
         # 2. Gestione Stato Emergenza Batteria
         if self.state == 'RETURN_SAFE':
@@ -41,17 +55,38 @@ class Worker1(BaseAgent):
 
     
     def _try_move(self, env, nr, nc, tick):
-        """Tenta di muoversi. GESTIONE COLLISIONI: STANDBY PURO (Niente backtracking)"""
+        """Tenta di muoversi. GESTIONE COLLISIONI: Override Deterministico"""
         if not env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
-            self.cached_path = [] # Muro o controsenso, ricalcola
+            if hasattr(self, 'cached_path'): self.cached_path = [] 
             return False
 
         if (nr, nc) in env.occupancy:
-            # RISOLUZIONE DEADLOCK BASE: Ricalcola il percorso per evitare stalli infiniti
-            self.cached_path = [] 
-            return False  
+            # Trova l'agente che sta occupando la cella target
+            occupant = next((a for a in env.active_agents if a.pos == (nr, nc)), None)
+            
+            if occupant:
+                # Regola di priorità: (is_carrying, -ID). 
+                # (True, -1) è > di (False, -2). L'ID negativo serve a far vincere il numero più basso.
+                my_priority = (self.carrying, -self.id)
+                occ_priority = (occupant.carrying, -occupant.id)
+                
+                if my_priority > occ_priority:
+                    # Io ho la priorità: ordino all'occupante di farsi da parte (Override FIPA-ACL implicito)
+                    if occupant._yield_step(env, tick):
+                        pass # L'occupante si è spostato con successo, la cella ora è libera per me!
+                    else:
+                        # L'occupante è incastrato e non può muoversi. Vado in standby forzato.
+                        if hasattr(self, 'cached_path'): self.cached_path = []
+                        return False
+                else:
+                    # L'occupante ha la priorità. Mi fermo e resetto la mia rotta.
+                    if hasattr(self, 'cached_path'): self.cached_path = []
+                    return False
 
-        # Movimento normale
+        # Movimento normale (se siamo qui, (nr, nc) è libera)
+        if (nr, nc) in env.occupancy:
+            return False # Fallback di sicurezza
+            
         env.occupancy.remove(self.pos)
         self.previous_pos = self.pos
         self.pos = (nr, nc)
@@ -229,10 +264,24 @@ class Worker3(Worker1):
     def decide_action(self, env, tick):
         self.check_battery(env)
          # 1. Comunicazione Multi-Agente Distribuita (Fase 5 Decentralizzata)
-        from src.communication import get_agents_in_radius
+        from src.communication import get_agents_in_radius, create_inform_message
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
+        
         for neighbor in neighbors:
-            self.merge_knowledge(neighbor.local_map, tick)
+            # L'agente vicino costruisce il payload FIPA-ACL da inviare a me
+            content = {
+                'map': neighbor.local_map,
+                'ts': tick
+            }
+            msg = create_inform_message(
+                sender_id=neighbor.id, 
+                receiver_id=self.id, 
+                content=content
+            )
+            
+            # Parsing del messaggio: se è un INFORM ed è indirizzato a me, faccio il merge
+            if msg['performative'] == 'INFORM' and msg['receiver'] == self.id:
+                self.merge_knowledge(msg['content']['map'], tick)
         
         # 2. Gestione Stato Emergenza Batteria
         if self.state == 'RETURN_SAFE':

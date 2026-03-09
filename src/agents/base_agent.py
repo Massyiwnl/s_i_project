@@ -65,3 +65,19 @@ class BaseAgent:
     def mark_abandoned(self, r, c, tick):
         """Marca un oggetto come abbandonato per esaurimento batteria."""
         self.local_map[(r, c)] = {'status': 'ABANDONED', 'ts': tick}
+
+    def _yield_step(self, env, tick):
+        """L'agente a bassa priorità tenta di cedere il passo spostandosi su una cella libera adiacente."""
+        for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nr, nc = self.pos[0] + dr, self.pos[1] + dc
+            if env.is_walkable(nr, nc, self.pos[0], self.pos[1]) and (nr, nc) not in env.occupancy:
+                # Cede il passo spostandosi lateralmente o all'indietro
+                env.occupancy.remove(self.pos)
+                self.pos = (nr, nc)
+                env.occupancy.add(self.pos)
+                
+                # Invalida il path corrente (dovrà ricalcolare la strada dal nuovo punto)
+                self.cached_path = []
+                self.local_map[self.pos] = {'status': 'VISITED', 'ts': tick}
+                return True
+        return False # Nessuno spazio per cedere il passo (stallo totale)

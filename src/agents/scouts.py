@@ -16,11 +16,25 @@ class Scout1(BaseAgent):
 
     def decide_action(self, env, tick):
         self.check_battery(env)
-        # 1. Comunicazione Multi-Agente Distribuita (Fase 5 Decentralizzata)
-        from src.communication import get_agents_in_radius
+        # 1. Comunicazione Multi-Agente Distribuita (Fase 5 FIPA-ACL)
+        from src.communication import get_agents_in_radius, create_inform_message
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
+        
         for neighbor in neighbors:
-            self.merge_knowledge(neighbor.local_map, tick)
+            # L'agente vicino costruisce il payload FIPA-ACL da inviare a me
+            content = {
+                'map': neighbor.local_map,
+                'ts': tick
+            }
+            msg = create_inform_message(
+                sender_id=neighbor.id, 
+                receiver_id=self.id, 
+                content=content
+            )
+            
+            # Parsing del messaggio: se è un INFORM ed è indirizzato a me, faccio il merge
+            if msg['performative'] == 'INFORM' and msg['receiver'] == self.id:
+                self.merge_knowledge(msg['content']['map'], tick)
         
         # 2. Gestione Stato Emergenza Batteria
         if self.state == 'RETURN_SAFE':
@@ -58,24 +72,43 @@ class Scout1(BaseAgent):
                     self.cached_path.pop(0)
     
     def _try_move(self, env, nr, nc, tick):
+        """Tenta di muoversi. GESTIONE COLLISIONI: Override Deterministico"""
         if not env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+            if hasattr(self, 'cached_path'): self.cached_path = [] 
             return False
 
         if (nr, nc) in env.occupancy:
-            return False 
+            # Trova l'agente che sta occupando la cella target
+            occupant = next((a for a in env.active_agents if a.pos == (nr, nc)), None)
+            
+            if occupant:
+                # Regola di priorità: (is_carrying, -ID). 
+                # (True, -1) è > di (False, -2). L'ID negativo serve a far vincere il numero più basso.
+                my_priority = (self.carrying, -self.id)
+                occ_priority = (occupant.carrying, -occupant.id)
+                
+                if my_priority > occ_priority:
+                    # Io ho la priorità: ordino all'occupante di farsi da parte (Override FIPA-ACL implicito)
+                    if occupant._yield_step(env, tick):
+                        pass # L'occupante si è spostato con successo, la cella ora è libera per me!
+                    else:
+                        # L'occupante è incastrato e non può muoversi. Vado in standby forzato.
+                        if hasattr(self, 'cached_path'): self.cached_path = []
+                        return False
+                else:
+                    # L'occupante ha la priorità. Mi fermo e resetto la mia rotta.
+                    if hasattr(self, 'cached_path'): self.cached_path = []
+                    return False
 
+        # Movimento normale (se siamo qui, (nr, nc) è libera)
+        if (nr, nc) in env.occupancy:
+            return False # Fallback di sicurezza
+            
         env.occupancy.remove(self.pos)
         self.previous_pos = self.pos
         self.pos = (nr, nc)
         env.occupancy.add(self.pos)
-        
-        # --- GESTIONE STRESS ---
-        if self.pos in self.local_map and self.local_map[self.pos].get('status') == 'VISITED':
-            self.stress += 1
-        else:
-            self.stress = 0
-            
-        # FIX STIGMERGIA: ts deve essere il tick corrente, non 0!
+
         self.local_map[self.pos] = {'status': 'VISITED', 'ts': tick}
         return True
 
@@ -106,22 +139,7 @@ class Scout1(BaseAgent):
 
         dirs = [(-1, 0), (0, 1), (1, 0), (0, -1)]
         
-        right_dir = (self.direction + 1) % 4
-        dr, dc = dirs[right_dir]
-        nr, nc = self.pos[0] + dr, self.pos[1] + dc
-        if env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
-            self.direction = right_dir
-            if self._try_move(env, nr, nc, tick):
-                self.state = 'EXPLORE'
-                return
-
-        dr, dc = dirs[self.direction]
-        nr, nc = self.pos[0] + dr, self.pos[1] + dc
-        if env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
-            if self._try_move(env, nr, nc, tick):
-                self.state = 'EXPLORE'
-                return
-
+        # 1. SINISTRA (Left-Hand Rule)
         left_dir = (self.direction - 1) % 4
         dr, dc = dirs[left_dir]
         nr, nc = self.pos[0] + dr, self.pos[1] + dc
@@ -131,6 +149,25 @@ class Scout1(BaseAgent):
                 self.state = 'EXPLORE'
                 return
 
+        # 2. AVANTI (Front)
+        dr, dc = dirs[self.direction]
+        nr, nc = self.pos[0] + dr, self.pos[1] + dc
+        if env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+            if self._try_move(env, nr, nc, tick):
+                self.state = 'EXPLORE'
+                return
+
+        # 3. DESTRA (Right)
+        right_dir = (self.direction + 1) % 4
+        dr, dc = dirs[right_dir]
+        nr, nc = self.pos[0] + dr, self.pos[1] + dc
+        if env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+            self.direction = right_dir
+            if self._try_move(env, nr, nc, tick):
+                self.state = 'EXPLORE'
+                return
+
+        # 4. INDIETRO (Dead-end, girati)
         self.direction = (self.direction + 2) % 4
         dr, dc = dirs[self.direction]
         nr, nc = self.pos[0] + dr, self.pos[1] + dc
@@ -160,11 +197,25 @@ class Scout2(BaseAgent):
 
     def decide_action(self, env, tick):
         self.check_battery(env)
-          # 1. Comunicazione Multi-Agente Distribuita (Fase 5 Decentralizzata)
-        from src.communication import get_agents_in_radius
+        # 1. Comunicazione Multi-Agente Distribuita (Fase 5 FIPA-ACL)
+        from src.communication import get_agents_in_radius, create_inform_message
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
+        
         for neighbor in neighbors:
-            self.merge_knowledge(neighbor.local_map, tick)
+            # L'agente vicino costruisce il payload FIPA-ACL da inviare a me
+            content = {
+                'map': neighbor.local_map,
+                'ts': tick
+            }
+            msg = create_inform_message(
+                sender_id=neighbor.id, 
+                receiver_id=self.id, 
+                content=content
+            )
+            
+            # Parsing del messaggio: se è un INFORM ed è indirizzato a me, faccio il merge
+            if msg['performative'] == 'INFORM' and msg['receiver'] == self.id:
+                self.merge_knowledge(msg['content']['map'], tick)
         
         # 2. Gestione Stato Emergenza Batteria
         if self.state == 'RETURN_SAFE':
@@ -202,18 +253,43 @@ class Scout2(BaseAgent):
                     self.cached_path.pop(0)
     
     def _try_move(self, env, nr, nc, tick):
+        """Tenta di muoversi. GESTIONE COLLISIONI: Override Deterministico"""
         if not env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+            if hasattr(self, 'cached_path'): self.cached_path = [] 
             return False
 
         if (nr, nc) in env.occupancy:
-            return False # STANDBY
+            # Trova l'agente che sta occupando la cella target
+            occupant = next((a for a in env.active_agents if a.pos == (nr, nc)), None)
+            
+            if occupant:
+                # Regola di priorità: (is_carrying, -ID). 
+                # (True, -1) è > di (False, -2). L'ID negativo serve a far vincere il numero più basso.
+                my_priority = (self.carrying, -self.id)
+                occ_priority = (occupant.carrying, -occupant.id)
+                
+                if my_priority > occ_priority:
+                    # Io ho la priorità: ordino all'occupante di farsi da parte (Override FIPA-ACL implicito)
+                    if occupant._yield_step(env, tick):
+                        pass # L'occupante si è spostato con successo, la cella ora è libera per me!
+                    else:
+                        # L'occupante è incastrato e non può muoversi. Vado in standby forzato.
+                        if hasattr(self, 'cached_path'): self.cached_path = []
+                        return False
+                else:
+                    # L'occupante ha la priorità. Mi fermo e resetto la mia rotta.
+                    if hasattr(self, 'cached_path'): self.cached_path = []
+                    return False
 
+        # Movimento normale (se siamo qui, (nr, nc) è libera)
+        if (nr, nc) in env.occupancy:
+            return False # Fallback di sicurezza
+            
         env.occupancy.remove(self.pos)
         self.previous_pos = self.pos
         self.pos = (nr, nc)
         env.occupancy.add(self.pos)
 
-        # FIX STIGMERGIA: ts deve essere il tick corrente, non 0!
         self.local_map[self.pos] = {'status': 'VISITED', 'ts': tick}
         return True
 
