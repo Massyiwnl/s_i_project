@@ -1,5 +1,8 @@
-from src.config import BATTERY_INITIAL, ENERGY_MARGIN
-from src.pathfinding import real_distance
+import random
+from src.config import BATTERY_INITIAL, ENERGY_MARGIN, COMM_RADIUS, VISION_RADIUS
+from src.communication import get_agents_in_radius, create_inform_message
+from src.sensors import get_visible_objects
+from src.pathfinding import get_valid_local_moves 
 
 def manhattan_distance(p1, p2):
     return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
@@ -7,77 +10,144 @@ def manhattan_distance(p1, p2):
 class BaseAgent:
     def __init__(self, agent_id):
         self.id = agent_id
-        self.state = 'STANDBY'  # Lo stato iniziale prima del DEPLOY
+        self.state = 'EXPLORE' 
         self.pos = (0, 0)
         self.battery = BATTERY_INITIAL
         self.carrying = False
         self.carrying_obj = None
         self.local_map = {}
-        self.cached_path = []
-
-    def nearest_entrance(self, env):
-        """Trova la cella ENTRANCE più vicina usando la Distanza di Manhattan (Euristica veloce)."""
-        min_dist = float('inf')
-        best_entrance = None
-        for wh in env.warehouses:
-            er, ec = wh['entrance']
-            dist = manhattan_distance(self.pos, (er, ec))
-            if dist < min_dist:
-                min_dist = dist
-                best_entrance = (er, ec)
-        return best_entrance
-
-    def check_battery(self, env):
-        """Commuta in RETURN_SAFE per mettersi in salvo prima di morire."""
-        if self.state in ['RETURN_SAFE', 'DEAD']:
-            return # Se sta già scappando o è morto, ignora.
-            
-        target = self.nearest_entrance(env)
-        if not target: return
-            
-        dist = manhattan_distance(self.pos, target)
-        # Se la batteria basta a malapena per il ritorno + margine di sicurezza
-        if self.battery <= (dist * ENERGY_MARGIN) + 5: 
-            self.state = 'RETURN_SAFE'
-            self.target_obj = target
-            self.cached_path = [] # Forza ricalcolo
+        self.stuck_ticks = 0 
 
     def decide_action(self, env, tick):
-        """Metodo astratto che verrà sovrascritto da Scout e Worker."""
         raise NotImplementedError("Questo metodo deve essere implementato dalle sottoclassi")
 
+    def _sync_with_neighbors(self, env, tick):
+        neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
+        for neighbor in neighbors:
+            msg = create_inform_message(
+                sender_id=neighbor.id, 
+                receiver_id=self.id, 
+                content={'map': neighbor.local_map, 'ts': tick}
+            )
+            if msg['performative'] == 'INFORM' and msg['receiver'] == self.id:
+                self.merge_knowledge(msg['content']['map'], tick)
+
+    def _scan_environment(self, env, tick):
+        visible_objs = get_visible_objects(env, self.pos[0], self.pos[1], VISION_RADIUS)
+        for obj in visible_objs:
+            if obj not in self.local_map or self.local_map[obj].get('status') != 'TAKEN':
+                self.local_map[obj] = {'status': 'FOUND', 'ts': tick}
+
     def merge_knowledge(self, incoming_map, tick):
-        """Sincronizza la mappa locale con una in arrivo, rispettando i timestamp."""
         for cell, data in incoming_map.items():
             existing = self.local_map.get(cell)
-            # Priorità assoluta: se l'oggetto è già stato preso, non sovrascrivere mai
             if existing and existing['status'] == 'TAKEN':
                 continue
-                
-            # Aggiorna se non avevamo il dato, o se il nuovo dato è più fresco
             if existing is None or data['ts'] > existing['ts']:
                 self.local_map[cell] = data
 
     def mark_taken(self, r, c):
-        """Marca un oggetto come raccolto con timestamp infinito."""
         self.local_map[(r, c)] = {'status': 'TAKEN', 'ts': float('inf')}
 
     def mark_abandoned(self, r, c, tick):
-        """Marca un oggetto come abbandonato per esaurimento batteria."""
         self.local_map[(r, c)] = {'status': 'ABANDONED', 'ts': tick}
 
-    def _yield_step(self, env, tick):
-        """L'agente a bassa priorità tenta di cedere il passo spostandosi su una cella libera adiacente."""
+    def check_battery(self, env):
+        if self.state in ['DEAD', 'FINISHED']: return
+        
+        if self.battery < 150: 
+            if self.carrying:
+                self.state = 'RETURN_HOME' 
+            else:
+                self.state = 'RETURN_BASE' 
+
+    def _dodge_step(self, env):
+        valid_moves = []
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = self.pos[0] + dr, self.pos[1] + dc
-            if env.is_walkable(nr, nc, self.pos[0], self.pos[1]) and (nr, nc) not in env.occupancy:
-                # Cede il passo spostandosi lateralmente o all'indietro
+            if env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+                valid_moves.append((nr, nc))
+                
+        random.shuffle(valid_moves) 
+        for nr, nc in valid_moves:
+            if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions:
+                env.intentions[(nr, nc)] = self.id
                 env.occupancy.remove(self.pos)
                 self.pos = (nr, nc)
                 env.occupancy.add(self.pos)
-                
-                # Invalida il path corrente (dovrà ricalcolare la strada dal nuovo punto)
-                self.cached_path = []
-                self.local_map[self.pos] = {'status': 'VISITED', 'ts': tick}
+                self.stuck_ticks = 0 
                 return True
-        return False # Nessuno spazio per cedere il passo (stallo totale)
+        return False
+
+    def _try_move(self, env, nr, nc):
+        if nr == self.pos[0] and nc == self.pos[1]:
+            self.stuck_ticks += 1
+            return True
+
+        if not env.is_walkable(nr, nc, self.pos[0], self.pos[1]):
+            self.stuck_ticks += 1
+            return False
+
+        if (nr, nc) in env.intentions or (nr, nc) in env.occupancy:
+            self.stuck_ticks += 1
+            return False 
+
+        env.intentions[(nr, nc)] = self.id
+        env.occupancy.remove(self.pos)
+        self.pos = (nr, nc)
+        env.occupancy.add(self.pos)
+        self.stuck_ticks = 0 
+
+        env.pheromone_explore[self.pos[0]][self.pos[1]] += 10.0
+        if self.carrying:
+            env.pheromone_object[self.pos[0]][self.pos[1]] += 20.0
+
+        return True
+
+    def _move_towards_target(self, env, target):
+        valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
+        if not valid_moves: return
+        
+        best_moves = []
+        min_dist = float('inf')
+        for nr, nc in valid_moves:
+            dist = abs(nr - target[0]) + abs(nc - target[1])
+            if dist < min_dist:
+                min_dist = dist
+                best_moves = [(nr, nc)]
+            elif dist == min_dist:
+                best_moves.append((nr, nc))
+                
+        if best_moves:
+            nr, nc = random.choice(best_moves)
+            self._try_move(env, nr, nc)
+
+    def _handle_return_base(self, env):
+        """Logica di rientro infallibile usando il gradiente di ambiente."""
+        dist_to_base = abs(self.pos[0]) + abs(self.pos[1])
+        
+        # Se è arrivato o è vicinissimo con la base occupata, si posteggia e sparisce
+        if dist_to_base == 0 or (dist_to_base <= 3 and self.stuck_ticks > 2):
+            self.state = 'FINISHED' 
+            # Libera fisicamente l'occupazione per permettere agli altri di posteggiare
+            if self.pos in env.occupancy:
+                env.occupancy.remove(self.pos)
+            return
+            
+        # Segue la corrente del feromone della base per aggirare i muri 
+        valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
+        if not valid_moves: return
+        
+        best_moves = []
+        max_val = float('-inf')
+        for nr, nc in valid_moves:
+            val = env.pheromone_base[nr][nc] # Controlla il valore del gradiente
+            if val > max_val:
+                max_val = val
+                best_moves = [(nr, nc)]
+            elif val == max_val:
+                best_moves.append((nr, nc))
+                
+        if best_moves:
+            nr, nc = random.choice(best_moves)
+            self._try_move(env, nr, nc)
