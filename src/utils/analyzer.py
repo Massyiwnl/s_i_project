@@ -1,15 +1,15 @@
 import json
 import os
+import csv
 
 class SimulationAnalyzer:
     def __init__(self, log_path):
         with open(log_path, 'r', encoding='utf-8') as f:
             self.data = json.load(f)
         
-        # FIX: Se self.data è una lista, sono direttamente gli eventi.
-        # Se è un dizionario, cerchiamo la chiave 'events'.
         if isinstance(self.data, list):
             self.events = self.data
+            self.metadata = {}
         else:
             self.events = self.data.get('events', [])
 

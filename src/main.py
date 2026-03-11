@@ -98,15 +98,25 @@ def main():
     try:
         from src.utils.analyzer import SimulationAnalyzer
         analyzer = SimulationAnalyzer(log_file)
+        
+        # 1. Report Testuale originale
         report_file = f'outputs/logs/run_{args.instance}_seed{args.seed}_report.txt'
         analyzer.generate_tabular_report(report_file)
+        
+        # 2. NUOVO: Tabella CSV per i singoli agenti
+        agent_csv_file = f'outputs/logs/run_{args.instance}_seed{args.seed}_agents.csv'
+        analyzer.generate_agent_stats_csv(agent_csv_file)
+        
+        # 3. NUOVO: Tabella CSV globale (si appende in automatico per ogni run)
+        global_csv_file = f'outputs/logs/experiments_summary.csv'
+        analyzer.generate_global_summary_csv(global_csv_file, args.seed, args.instance)
         
         metrics = analyzer.get_summary_metrics()
         print("\n--- SINTESI SIMULAZIONE ---")
         for k, v in metrics.items():
             print(f"{k}: {v}")
     except Exception as e:
-        pass
+        print(f"Errore durante l'analisi dei log: {e}")
 
 if __name__ == '__main__':
     main()
