@@ -55,7 +55,7 @@ class BaseAgent:
     def check_battery(self, env):
         if self.state in ['DEAD', 'FINISHED']: return
         
-        if self.battery < 150: 
+        if self.battery < 50: 
             if self.carrying:
                 self.state = 'RETURN_HOME' 
             else:

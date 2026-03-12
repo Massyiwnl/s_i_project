@@ -45,13 +45,6 @@ TICK     | ID   | EVENTO                    | POSIZIONE    | BATT   | CARICO
 325      | 1    | RACCOLTA OGGETTO          | (16,10)      | 174    | SI
 338      | 1    | CONSEGNA EFFETTUATA       | (22,11)      | 161    | NO
 342      | 1    | Stato: EXPLORE            | (20,11)      | 157    | NO
-350      | 1    | Stato: RETURN_BASE        | (22,11)      | 149    | NO
-351      | 2    | Stato: RETURN_BASE        | (7,20)       | 149    | NO
-353      | 3    | Stato: RETURN_BASE        | (7,2)        | 149    | NO
-354      | 4    | Stato: RETURN_BASE        | (4,3)        | 149    | NO
-355      | 5    | Stato: RETURN_BASE        | (17,0)       | 149    | NO
-362      | 4    | Stato: FINISHED           | (0,0)        | 141    | NO
-364      | 3    | Stato: FINISHED           | (0,0)        | 138    | NO
-379      | 2    | Stato: FINISHED           | (0,0)        | 121    | NO
-386      | 1    | Stato: FINISHED           | (0,0)        | 113    | NO
-389      | 5    | Stato: FINISHED           | (0,0)        | 115    | NO
+436      | 1    | Stato: RETRIEVE           | (10,17)      | 63     | NO
+439      | 1    | RACCOLTA OGGETTO          | (10,19)      | 60     | SI
+444      | 1    | CONSEGNA EFFETTUATA       | (11,22)      | 55     | NO
