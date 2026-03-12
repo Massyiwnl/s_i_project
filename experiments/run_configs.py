@@ -18,6 +18,6 @@ def run_experiment(instance_name):
 
 if __name__ == '__main__':
     # Esegue in cascata 5 run (impiegherà pochissimi secondi senza GUI)
-    run_experiment('A')
+    #run_experiment('A')
     # Se vuoi testare l'istanza B per la configurazione C3, decommenta la riga sotto:
-    #run_experiment('B')
+    run_experiment('B')

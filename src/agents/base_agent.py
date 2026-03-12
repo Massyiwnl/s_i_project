@@ -21,6 +21,11 @@ class BaseAgent:
     def decide_action(self, env, tick):
         raise NotImplementedError("Questo metodo deve essere implementato dalle sottoclassi")
 
+    def clear_reservation(self, env):
+        keys_to_delete = [k for k, v in env.intentions.items() if v == self.id]
+        for k in keys_to_delete:
+            del env.intentions[k]
+
     def _sync_with_neighbors(self, env, tick):
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS)
         for neighbor in neighbors:
@@ -53,7 +58,11 @@ class BaseAgent:
         self.local_map[(r, c)] = {'status': 'ABANDONED', 'ts': tick}
 
     def check_battery(self, env):
-        if self.state in ['DEAD', 'FINISHED']: return
+        if self.state in ['DEAD', 'FINISHED']: 
+            self.clear_reservation(env)
+            if self.pos in env.occupancy:
+                env.occupancy.remove(self.pos)
+            return
         
         if self.battery < 50: 
             if self.carrying:
@@ -71,8 +80,10 @@ class BaseAgent:
         random.shuffle(valid_moves) 
         for nr, nc in valid_moves:
             if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions:
+                self.clear_reservation(env) 
                 env.intentions[(nr, nc)] = self.id
-                env.occupancy.remove(self.pos)
+                if self.pos in env.occupancy:
+                    env.occupancy.remove(self.pos)
                 self.pos = (nr, nc)
                 env.occupancy.add(self.pos)
                 self.stuck_ticks = 0 
@@ -88,12 +99,19 @@ class BaseAgent:
             self.stuck_ticks += 1
             return False
 
-        if (nr, nc) in env.intentions or (nr, nc) in env.occupancy:
+        if (nr, nc) in env.intentions and env.intentions[(nr, nc)] != self.id:
             self.stuck_ticks += 1
             return False 
 
+        if (nr, nc) in env.occupancy and (nr, nc) != self.pos:
+            self.stuck_ticks += 1
+            return False
+
+        self.clear_reservation(env) 
         env.intentions[(nr, nc)] = self.id
-        env.occupancy.remove(self.pos)
+        
+        if self.pos in env.occupancy:
+            env.occupancy.remove(self.pos)
         self.pos = (nr, nc)
         env.occupancy.add(self.pos)
         self.stuck_ticks = 0 
@@ -108,21 +126,28 @@ class BaseAgent:
         valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
         if not valid_moves: return
         
-        # --- FIX 2: PREVENZIONE LIVELOCK E SCONTRI FRONTALI ---
-        # Durante il calcolo della mossa migliore, l'agente esclude istantaneamente
-        # le posizioni che sa essere fisicamente occupate in quel momento.
         free_moves = [(nr, nc) for nr, nc in valid_moves if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions]
         candidate_moves = free_moves if free_moves else valid_moves
-        # ------------------------------------------------------
         
         best_moves = []
-        min_dist = float('inf')
+        min_score = float('inf')
+        
         for nr, nc in candidate_moves:
+            # 1. Distanza base da minimizzare
             dist = abs(nr - target[0]) + abs(nc - target[1])
-            if dist < min_dist:
-                min_dist = dist
+            
+            # --- FIX BUG DEL LOOP (Stigmergia per aggirare ostacoli) ---
+            # Aggiungiamo il feromone esplorativo come "penalità" (come se la cella fosse più lontana).
+            # L'agente si ricorderà di essere già stato qui ed eviterà di tornare indietro all'infinito!
+            penalty = env.pheromone_explore[nr][nc] * 0.5 
+            
+            score = dist + penalty
+            
+            if score < min_score:
+                min_score = score
                 best_moves = [(nr, nc)]
-            elif dist == min_dist:
+            # Usiamo abs() per confronti sicuri tra numeri con la virgola (float)
+            elif abs(score - min_score) < 0.0001: 
                 best_moves.append((nr, nc))
                 
         if best_moves:
@@ -130,29 +155,25 @@ class BaseAgent:
             self._try_move(env, nr, nc)
 
     def _handle_return_base(self, env):
-        """Logica di rientro infallibile usando il gradiente di ambiente."""
         dist_to_base = abs(self.pos[0]) + abs(self.pos[1])
         
-        # Se è arrivato o è vicinissimo con la base occupata, si posteggia e sparisce
         if dist_to_base == 0 or (dist_to_base <= 3 and self.stuck_ticks > 2):
             self.state = 'FINISHED' 
-            # Libera fisicamente l'occupazione per permettere agli altri di posteggiare
+            self.clear_reservation(env)
             if self.pos in env.occupancy:
                 env.occupancy.remove(self.pos)
             return
             
-        # Segue la corrente del feromone della base per aggirare i muri 
         valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
         if not valid_moves: return
         
-        # Applicazione dell'evitamento ostacoli anche sul rientro d'emergenza
         free_moves = [(nr, nc) for nr, nc in valid_moves if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions]
         candidate_moves = free_moves if free_moves else valid_moves
         
         best_moves = []
         max_val = float('-inf')
         for nr, nc in candidate_moves:
-            val = env.pheromone_base[nr][nc] # Controlla il valore del gradiente
+            val = env.pheromone_base[nr][nc] 
             if val > max_val:
                 max_val = val
                 best_moves = [(nr, nc)]

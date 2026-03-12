@@ -8,20 +8,20 @@ class Worker1(BaseAgent):
         self.target_obj = None
 
     def decide_action(self, env, tick):
-        # Disattiva il cervello se è parcheggiato alla base o morto
-        if self.state in ['DEAD', 'FINISHED']: return
+        if self.state in ['DEAD', 'FINISHED']: 
+            self.clear_reservation(env)
+            if self.pos in env.occupancy:
+                env.occupancy.remove(self.pos)
+            return
         
         self.check_battery(env)
         self._sync_with_neighbors(env, tick)
         self._scan_environment(env, tick)
         
-        if self.stuck_ticks > 2:
+        if self.stuck_ticks > 8:
             if self._dodge_step(env):
                 return
                 
-        # --- FIX 1: COMPORTAMENTO OPPORTUNISTICO GLOBALE ---
-        # Se l'agente è fisicamente sopra un oggetto, ha le mani libere e non è in fuga
-        # per batteria critica, lo raccoglie a prescindere dal suo stato attuale!
         if not self.carrying and self.state != 'RETURN_BASE' and env.is_object_at(self.pos[0], self.pos[1]):
             self.carrying = True
             self.carrying_obj = self.pos
@@ -29,13 +29,12 @@ class Worker1(BaseAgent):
             env.pick_up_object(self.pos[0], self.pos[1])
             self.target_obj = None
             self.state = 'RETURN_HOME'
-            return # Termina il tick completando la raccolta istantanea
-        # ---------------------------------------------------
+            return 
         
-        # TRANSIZIONI DI STATO
         if self.state == 'EXIT_WAREHOUSE':
             if env.grid[self.pos[0]][self.pos[1]] not in [2, 3, 4]:
                 self.state = 'EXPLORE'
+                self.clear_reservation(env)
         elif self.state not in ['RETURN_HOME', 'RETURN_BASE']:
             if self.carrying:
                 self.state = 'RETURN_HOME'
@@ -44,7 +43,6 @@ class Worker1(BaseAgent):
             else:
                 self.state = 'EXPLORE'
 
-        # ESECUZIONE AZIONI
         if self.state == 'EXPLORE':
             self._handle_explore(env)
         elif self.state == 'RETRIEVE':
@@ -76,8 +74,6 @@ class Worker1(BaseAgent):
             return
 
         if self.pos == self.target_obj:
-            # Se è arrivato a destinazione ma l'oggetto non c'è più
-            # (perché l'opportunismo l'avrebbe già preso se ci fosse stato)
             self.mark_taken(self.pos[0], self.pos[1])
             self.target_obj = None
             self.state = 'EXPLORE'
@@ -86,7 +82,6 @@ class Worker1(BaseAgent):
         self._move_towards_target(env, self.target_obj)
 
     def _handle_return_home(self, env, tick):
-        # 1. RILASCIO OGGETTO ALL'INTERNO DEL MAGAZZINO (BLOCCO BLU = 2)
         if env.grid[self.pos[0]][self.pos[1]] == 2 and self.carrying:
             env.deliver_object(self.carrying_obj[0], self.carrying_obj[1])
             env.log_traffic(self.pos[0], self.pos[1])
@@ -95,7 +90,6 @@ class Worker1(BaseAgent):
             self.state = 'EXIT_WAREHOUSE' 
             return
         
-        # 2. SE SONO SULL'INGRESSO (3), DEVO ENTRARE NEL MAGAZZINO (2)
         if env.grid[self.pos[0]][self.pos[1]] == 3:
             valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
             for nr, nc in valid_moves:
@@ -103,15 +97,17 @@ class Worker1(BaseAgent):
                     self._try_move(env, nr, nc)
                     return
 
-        # Abbandono se la batteria cede
         if self.battery <= 2 and self.carrying:
             self.carrying = False
             self.mark_abandoned(self.pos[0], self.pos[1], tick)
             env.drop_abandoned_object(self.pos[0], self.pos[1])
             self.carrying_obj = None
 
-        # Gradiente verso magazzino
-        weights = {'home': 5.0, 'explore': -0.2, 'object': 0.0}
+        # --- FIX BUG LOOP RITORNO: Peso trasformato da -0.2 a 0.5 ---
+        # Avendo un peso negativo in una funzione che SOTTRAE, creavamo una Somma
+        # (Attrazione fatale per le proprie tracce).
+        # Ora è positivo, quindi garantisce corretta REPULSIONE (evita le scie).
+        weights = {'home': 5.0, 'explore': 0.5, 'object': 0.0}
         nr, nc = evaluate_utility(env, self.pos[0], self.pos[1], weights)
         self._try_move(env, nr, nc)
 
