@@ -19,10 +19,17 @@ def evaluate_utility(env, r, c, weights):
     if not valid_moves:
         return r, c # Nessuna mossa disponibile (stallo locale)
 
+    # --- FIX 2: PREVENZIONE CONGESTIONI (Evitamento Dinamico) ---
+    # Isoliamo le mosse libere. Se tutti i varchi sono bloccati, ripieghiamo 
+    # su quelle valide accettando momentaneamente lo stallo/attesa.
+    free_moves = [(nr, nc) for nr, nc in valid_moves if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions]
+    candidate_moves = free_moves if free_moves else valid_moves
+    # ------------------------------------------------------------
+
     best_moves = []
     max_utility = float('-inf')
 
-    for nr, nc in valid_moves:
+    for nr, nc in candidate_moves:
         utility = 0.0
         
         # 1. Attrazione verso il magazzino (Feromone statico)

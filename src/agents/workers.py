@@ -18,6 +18,19 @@ class Worker1(BaseAgent):
         if self.stuck_ticks > 2:
             if self._dodge_step(env):
                 return
+                
+        # --- FIX 1: COMPORTAMENTO OPPORTUNISTICO GLOBALE ---
+        # Se l'agente è fisicamente sopra un oggetto, ha le mani libere e non è in fuga
+        # per batteria critica, lo raccoglie a prescindere dal suo stato attuale!
+        if not self.carrying and self.state != 'RETURN_BASE' and env.is_object_at(self.pos[0], self.pos[1]):
+            self.carrying = True
+            self.carrying_obj = self.pos
+            self.mark_taken(self.pos[0], self.pos[1])
+            env.pick_up_object(self.pos[0], self.pos[1])
+            self.target_obj = None
+            self.state = 'RETURN_HOME'
+            return # Termina il tick completando la raccolta istantanea
+        # ---------------------------------------------------
         
         # TRANSIZIONI DI STATO
         if self.state == 'EXIT_WAREHOUSE':
@@ -63,17 +76,11 @@ class Worker1(BaseAgent):
             return
 
         if self.pos == self.target_obj:
-            if env.is_object_at(self.pos[0], self.pos[1]):
-                self.carrying = True
-                self.carrying_obj = self.target_obj
-                self.mark_taken(self.pos[0], self.pos[1])
-                env.pick_up_object(self.pos[0], self.pos[1])
-                self.target_obj = None
-                self.state = 'RETURN_HOME'
-            else:
-                self.mark_taken(self.pos[0], self.pos[1])
-                self.target_obj = None
-                self.state = 'EXPLORE'
+            # Se è arrivato a destinazione ma l'oggetto non c'è più
+            # (perché l'opportunismo l'avrebbe già preso se ci fosse stato)
+            self.mark_taken(self.pos[0], self.pos[1])
+            self.target_obj = None
+            self.state = 'EXPLORE'
             return
 
         self._move_towards_target(env, self.target_obj)

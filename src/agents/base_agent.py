@@ -108,9 +108,16 @@ class BaseAgent:
         valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
         if not valid_moves: return
         
+        # --- FIX 2: PREVENZIONE LIVELOCK E SCONTRI FRONTALI ---
+        # Durante il calcolo della mossa migliore, l'agente esclude istantaneamente
+        # le posizioni che sa essere fisicamente occupate in quel momento.
+        free_moves = [(nr, nc) for nr, nc in valid_moves if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions]
+        candidate_moves = free_moves if free_moves else valid_moves
+        # ------------------------------------------------------
+        
         best_moves = []
         min_dist = float('inf')
-        for nr, nc in valid_moves:
+        for nr, nc in candidate_moves:
             dist = abs(nr - target[0]) + abs(nc - target[1])
             if dist < min_dist:
                 min_dist = dist
@@ -138,9 +145,13 @@ class BaseAgent:
         valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
         if not valid_moves: return
         
+        # Applicazione dell'evitamento ostacoli anche sul rientro d'emergenza
+        free_moves = [(nr, nc) for nr, nc in valid_moves if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions]
+        candidate_moves = free_moves if free_moves else valid_moves
+        
         best_moves = []
         max_val = float('-inf')
-        for nr, nc in valid_moves:
+        for nr, nc in candidate_moves:
             val = env.pheromone_base[nr][nc] # Controlla il valore del gradiente
             if val > max_val:
                 max_val = val
