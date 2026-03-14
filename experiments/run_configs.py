@@ -61,7 +61,7 @@ def run_experiment(instance_name):
 
 if __name__ == '__main__':
     # Esegue in cascata 5 run (pochissimi secondi senza GUI)
-    run_experiment('A')
+    #run_experiment('A')
     # FIX: il commento originale era invertito — era B ad essere attiva, non A.
     # Per testare l'istanza B (configurazione C3), decommenta la riga sotto:
-    #run_experiment('B')
+    run_experiment('B')

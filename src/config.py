@@ -21,6 +21,7 @@ BATTERY_INITIAL = 500
 # FIX: ENERGY_MARGIN ora usato in check_battery come moltiplicatore della soglia.
 # Con 1.20, la soglia diventa BATTERY_INITIAL * 0.10 * 1.20 = 60 (invece di 50 hardcoded).
 ENERGY_MARGIN = 1.20
+EMERGENCY_DROP_BATTERY = 2  # <--- NUOVA COSTANTE AGGIUNTA
 
 # -- Sensori e Comunicazione --
 VISION_RADIUS = 3  # Configurazione C1: cambia questo (1 vs 3)

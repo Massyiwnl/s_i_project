@@ -61,7 +61,8 @@ class Environment:
         queue = deque()
         for wh in self.warehouses:
             r, c = wh['entrance']  # gia' tuple dopo load
-            self.pheromone_home[r][c] = 100.0
+            # Usa l'area della mappa come picco massimo per garantire copertura totale
+            self.pheromone_home[r][c] = float(self.n * self.n)
             queue.append((r, c))
 
         visited = set(queue)
@@ -83,7 +84,8 @@ class Environment:
         """Gradiente BFS statico verso lo spawn (0,0) per il ritorno sicuro."""
         self.pheromone_base = [[0.0] * self.n for _ in range(self.n)]
         queue = deque([(0, 0)])
-        self.pheromone_base[0][0] = 1000.0
+        # Moltiplicatore x2 per garantire che la base abbia un'attrazione sempre prioritaria
+        self.pheromone_base[0][0] = float(self.n * self.n * 2)
         visited = set([(0, 0)])
 
         while queue:

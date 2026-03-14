@@ -1,6 +1,7 @@
 import json
 import os
 import csv
+from src.config import EMERGENCY_DROP_BATTERY
 
 
 class SimulationAnalyzer:
@@ -58,7 +59,7 @@ class SimulationAnalyzer:
             if agent['_last_carrying'] and not e['carrying']:
                 if e['state'] in ['EXIT_WAREHOUSE', 'FINISHED', 'EXPLORE']:
                     agent['deliveries'] += 1
-                elif e['battery'] <= 2 or e['state'] == 'DEAD':
+                elif e['battery'] <= EMERGENCY_DROP_BATTERY or e['state'] == 'DEAD':
                     agent['abandoned'] += 1
 
             agent['_last_carrying'] = e['carrying']

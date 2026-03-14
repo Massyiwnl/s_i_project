@@ -5,8 +5,8 @@
     "critical_failures": 0,
     "avg_energy_consumed": 132.0,
     "exploration_percent": {
-      "tick_100": 2.1,
-      "tick_133": 2.62
+      "tick_100": 73.75,
+      "tick_133": 94.23
     },
     "traffic_log": {
       "[2, 11]": 3,

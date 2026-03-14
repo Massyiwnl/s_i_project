@@ -1,18 +1,19 @@
 {
   "metadata": {
-    "ticks_total": 207,
+    "ticks_total": 282,
     "delivered": 10,
     "critical_failures": 0,
-    "avg_energy_consumed": 206.0,
+    "avg_energy_consumed": 281.0,
     "exploration_percent": {
-      "tick_100": 2.1,
-      "tick_207": 2.62
+      "tick_100": 60.37,
+      "tick_250": 93.44,
+      "tick_282": 93.44
     },
     "traffic_log": {
       "[2, 11]": 5,
       "[11, 2]": 2,
-      "[22, 11]": 2,
-      "[11, 22]": 1
+      "[11, 22]": 1,
+      "[22, 11]": 2
     }
   },
   "events": [
@@ -9273,8 +9274,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        11,
-        5
+        10,
+        6
       ],
       "battery": 343,
       "carrying": false,
@@ -9357,8 +9358,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        12,
-        5
+        10,
+        7
       ],
       "battery": 342,
       "carrying": false,
@@ -9393,8 +9394,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        11,
-        8
+        10,
+        9
       ],
       "battery": 343,
       "carrying": false,
@@ -9405,8 +9406,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        13,
-        5
+        11,
+        7
       ],
       "battery": 341,
       "carrying": false,
@@ -9441,8 +9442,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        13,
-        6
+        11,
+        8
       ],
       "battery": 340,
       "carrying": false,
@@ -9477,8 +9478,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        11,
-        7
+        10,
+        10
       ],
       "battery": 342,
       "carrying": false,
@@ -9513,8 +9514,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        13,
-        7
+        12,
+        8
       ],
       "battery": 339,
       "carrying": false,
@@ -9549,8 +9550,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        12,
-        7
+        10,
+        11
       ],
       "battery": 341,
       "carrying": false,
@@ -9597,8 +9598,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        12,
-        8
+        10,
+        12
       ],
       "battery": 340,
       "carrying": false,
@@ -9633,8 +9634,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        12,
-        7
+        10,
+        13
       ],
       "battery": 339,
       "carrying": false,
@@ -9645,8 +9646,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        14,
-        8
+        13,
+        9
       ],
       "battery": 337,
       "carrying": false,
@@ -9669,8 +9670,8 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        10,
-        4
+        11,
+        5
       ],
       "battery": 340,
       "carrying": false,
@@ -9693,8 +9694,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        7
+        10,
+        14
       ],
       "battery": 338,
       "carrying": false,
@@ -9705,8 +9706,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        15,
-        8
+        13,
+        10
       ],
       "battery": 336,
       "carrying": false,
@@ -9753,8 +9754,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        8
+        10,
+        15
       ],
       "battery": 337,
       "carrying": false,
@@ -9765,8 +9766,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        8
+        13,
+        11
       ],
       "battery": 335,
       "carrying": false,
@@ -9790,7 +9791,7 @@
       "agent_type": "Worker3",
       "pos": [
         10,
-        6
+        4
       ],
       "battery": 338,
       "carrying": false,
@@ -9802,7 +9803,7 @@
       "agent_type": "Worker3",
       "pos": [
         10,
-        7
+        5
       ],
       "battery": 337,
       "carrying": false,
@@ -9813,8 +9814,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        9
+        13,
+        12
       ],
       "battery": 334,
       "carrying": false,
@@ -9849,8 +9850,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        9
+        10,
+        16
       ],
       "battery": 336,
       "carrying": false,
@@ -9861,8 +9862,8 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        10
+        13,
+        13
       ],
       "battery": 333,
       "carrying": false,
@@ -9873,8 +9874,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        10
+        10,
+        17
       ],
       "battery": 335,
       "carrying": false,
@@ -9885,8 +9886,8 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        11,
-        7
+        10,
+        6
       ],
       "battery": 336,
       "carrying": false,
@@ -9921,12 +9922,12 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        10
+        13,
+        14
       ],
       "battery": 332,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
       "tick": 167,
@@ -9957,8 +9958,8 @@
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        11
+        10,
+        18
       ],
       "battery": 334,
       "carrying": false,
@@ -9969,8 +9970,8 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        11,
-        8
+        10,
+        7
       ],
       "battery": 335,
       "carrying": false,
@@ -9978,13 +9979,13 @@
     },
     {
       "tick": 168,
-      "id": 4,
-      "agent_type": "Worker3",
+      "id": 3,
+      "agent_type": "Worker2",
       "pos": [
-        12,
-        8
+        10,
+        19
       ],
-      "battery": 334,
+      "battery": 333,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -10017,36 +10018,36 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        9
+        13,
+        15
       ],
       "battery": 331,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
       "tick": 168,
-      "id": 3,
-      "agent_type": "Worker2",
+      "id": 4,
+      "agent_type": "Worker3",
       "pos": [
-        13,
-        12
+        10,
+        8
       ],
-      "battery": 333,
+      "battery": 334,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
       "tick": 169,
-      "id": 4,
-      "agent_type": "Worker3",
+      "id": 3,
+      "agent_type": "Worker2",
       "pos": [
-        13,
-        8
+        10,
+        19
       ],
-      "battery": 333,
-      "carrying": false,
-      "state": "RETRIEVE"
+      "battery": 332,
+      "carrying": true,
+      "state": "RETURN_HOME"
     },
     {
       "tick": 169,
@@ -10062,13 +10063,13 @@
     },
     {
       "tick": 169,
-      "id": 3,
-      "agent_type": "Worker2",
+      "id": 4,
+      "agent_type": "Worker3",
       "pos": [
-        13,
-        13
+        10,
+        9
       ],
-      "battery": 332,
+      "battery": 333,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -10077,12 +10078,12 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        16,
-        8
+        12,
+        15
       ],
       "battery": 330,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
       "tick": 169,
@@ -10110,37 +10111,25 @@
     },
     {
       "tick": 170,
-      "id": 4,
-      "agent_type": "Worker3",
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
-        14,
-        8
+        11,
+        15
       ],
-      "battery": 332,
+      "battery": 329,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
       "tick": 170,
-      "id": 1,
-      "agent_type": "Worker1",
+      "id": 4,
+      "agent_type": "Worker3",
       "pos": [
-        17,
-        8
+        10,
+        10
       ],
-      "battery": 329,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 170,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        13,
-        14
-      ],
-      "battery": 331,
+      "battery": 332,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -10157,52 +10146,16 @@
       "state": "EXPLORE"
     },
     {
-      "tick": 171,
+      "tick": 170,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        13
-      ],
-      "battery": 330,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 171,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        18,
-        8
-      ],
-      "battery": 328,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 171,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        1,
-        23
-      ],
-      "battery": 329,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 171,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        15,
-        8
+        11,
+        19
       ],
       "battery": 331,
-      "carrying": false,
-      "state": "RETRIEVE"
+      "carrying": true,
+      "state": "RETURN_HOME"
     },
     {
       "tick": 171,
@@ -10217,28 +10170,64 @@
       "state": "EXPLORE"
     },
     {
-      "tick": 172,
+      "tick": 171,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        20
+      ],
+      "battery": 330,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 171,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        23
+      ],
+      "battery": 329,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 171,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        19,
-        8
+        11,
+        16
       ],
-      "battery": 327,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "battery": 328,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 171,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        11
+      ],
+      "battery": 331,
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
       "tick": 172,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        12
+        11,
+        21
       ],
       "battery": 329,
-      "carrying": false,
-      "state": "RETRIEVE"
+      "carrying": true,
+      "state": "RETURN_HOME"
     },
     {
       "tick": 172,
@@ -10254,6 +10243,18 @@
     },
     {
       "tick": 172,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        12
+      ],
+      "battery": 330,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 172,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
@@ -10266,25 +10267,13 @@
     },
     {
       "tick": 172,
-      "id": 4,
-      "agent_type": "Worker3",
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
-        16,
-        8
+        11,
+        17
       ],
-      "battery": 330,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 173,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        7
-      ],
-      "battery": 329,
+      "battery": 327,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -10293,10 +10282,22 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        19,
-        9
+        11,
+        18
       ],
       "battery": 326,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 173,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        22
+      ],
+      "battery": 328,
       "carrying": true,
       "state": "RETURN_HOME"
     },
@@ -10311,18 +10312,6 @@
       "battery": 327,
       "carrying": false,
       "state": "EXPLORE"
-    },
-    {
-      "tick": 173,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        13,
-        11
-      ],
-      "battery": 328,
-      "carrying": false,
-      "state": "RETRIEVE"
     },
     {
       "tick": 173,
@@ -10337,6 +10326,66 @@
       "state": "EXPLORE"
     },
     {
+      "tick": 173,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        13
+      ],
+      "battery": 329,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 174,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        14
+      ],
+      "battery": 328,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 174,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        23
+      ],
+      "battery": 326,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 174,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        22
+      ],
+      "battery": 327,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 174,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        18
+      ],
+      "battery": 325,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
       "tick": 174,
       "id": 5,
       "agent_type": "Scout1",
@@ -10349,54 +10398,6 @@
       "state": "EXPLORE"
     },
     {
-      "tick": 174,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        0,
-        23
-      ],
-      "battery": 326,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 174,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        20,
-        9
-      ],
-      "battery": 325,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 174,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        13,
-        10
-      ],
-      "battery": 327,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 174,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        6
-      ],
-      "battery": 328,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
       "tick": 175,
       "id": 5,
       "agent_type": "Scout1",
@@ -10410,6 +10411,18 @@
     },
     {
       "tick": 175,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        22
+      ],
+      "battery": 326,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 175,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
@@ -10425,8 +10438,8 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        5
+        10,
+        15
       ],
       "battery": 327,
       "carrying": false,
@@ -10434,49 +10447,13 @@
     },
     {
       "tick": 175,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        13,
-        9
-      ],
-      "battery": 326,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 175,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        20,
-        10
+        12,
+        19
       ],
       "battery": 324,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 176,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        0,
-        21
-      ],
-      "battery": 324,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 176,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        4
-      ],
-      "battery": 326,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -10485,20 +10462,20 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        20,
-        11
+        11,
+        19
       ],
       "battery": 323,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
       "tick": 176,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        16,
-        24
+        15,
+        23
       ],
       "battery": 327,
       "carrying": false,
@@ -10506,35 +10483,59 @@
     },
     {
       "tick": 176,
-      "id": 3,
-      "agent_type": "Worker2",
+      "id": 2,
+      "agent_type": "Scout2",
       "pos": [
-        13,
-        10
+        0,
+        21
       ],
-      "battery": 325,
+      "battery": 324,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 176,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        9,
+        15
+      ],
+      "battery": 326,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
-      "tick": 177,
+      "tick": 176,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        11
+        12,
+        21
       ],
-      "battery": 324,
+      "battery": 325,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 177,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        21
+      ],
+      "battery": 323,
+      "carrying": false,
+      "state": "EXPLORE"
     },
     {
       "tick": 177,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        15,
-        24
+        14,
+        23
       ],
       "battery": 326,
       "carrying": false,
@@ -10542,23 +10543,23 @@
     },
     {
       "tick": 177,
-      "id": 2,
-      "agent_type": "Scout2",
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
-        0,
-        20
+        10,
+        19
       ],
-      "battery": 323,
+      "battery": 322,
       "carrying": false,
-      "state": "EXPLORE"
+      "state": "RETRIEVE"
     },
     {
       "tick": 177,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        3
+        8,
+        15
       ],
       "battery": 325,
       "carrying": false,
@@ -10566,35 +10567,23 @@
     },
     {
       "tick": 177,
-      "id": 1,
-      "agent_type": "Worker1",
+      "id": 3,
+      "agent_type": "Worker2",
       "pos": [
-        21,
-        11
+        12,
+        20
       ],
-      "battery": 322,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 178,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        14,
-        24
-      ],
-      "battery": 325,
+      "battery": 324,
       "carrying": false,
-      "state": "EXPLORE"
+      "state": "EXIT_WAREHOUSE"
     },
     {
       "tick": 178,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        2
+        7,
+        15
       ],
       "battery": 324,
       "carrying": false,
@@ -10605,10 +10594,22 @@
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        0,
-        19
+        1,
+        22
       ],
       "battery": 322,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 178,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        14,
+        24
+      ],
+      "battery": 325,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -10617,32 +10618,44 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        22,
-        11
+        10,
+        19
       ],
       "battery": 321,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "carrying": false,
+      "state": "EXPLORE"
     },
     {
       "tick": 178,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        12
+        11,
+        20
       ],
       "battery": 323,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 179,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        11,
+        19
+      ],
+      "battery": 320,
+      "carrying": false,
+      "state": "EXPLORE"
     },
     {
       "tick": 179,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        1,
-        19
+        2,
+        22
       ],
       "battery": 321,
       "carrying": false,
@@ -10650,35 +10663,23 @@
     },
     {
       "tick": 179,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        22,
-        11
-      ],
-      "battery": 320,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 179,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        13
+        11,
+        21
       ],
       "battery": 322,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 179,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        1
+        7,
+        16
       ],
       "battery": 323,
       "carrying": false,
@@ -10689,8 +10690,8 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        14,
-        23
+        15,
+        24
       ],
       "battery": 324,
       "carrying": false,
@@ -10698,35 +10699,35 @@
     },
     {
       "tick": 180,
-      "id": 4,
-      "agent_type": "Worker3",
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
-        15,
-        1
+        11,
+        20
       ],
-      "battery": 322,
+      "battery": 319,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 180,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        14
+        11,
+        22
       ],
       "battery": 321,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 180,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        1,
-        20
+        3,
+        22
       ],
       "battery": 320,
       "carrying": false,
@@ -10734,71 +10735,35 @@
     },
     {
       "tick": 180,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        17
+      ],
+      "battery": 322,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 180,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        15,
-        23
+        16,
+        24
       ],
       "battery": 323,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 180,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        22,
-        12
-      ],
-      "battery": 319,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 181,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        1,
-        21
-      ],
-      "battery": 319,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 181,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        13,
-        15
-      ],
-      "battery": 320,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 181,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        14,
-        1
-      ],
-      "battery": 321,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
       "tick": 181,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        15,
-        22
+        17,
+        24
       ],
       "battery": 322,
       "carrying": false,
@@ -10806,23 +10771,83 @@
     },
     {
       "tick": 181,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        23
+      ],
+      "battery": 320,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 181,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        22
+      ],
+      "battery": 319,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 181,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        18
+      ],
+      "battery": 321,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 181,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        21,
-        12
+        11,
+        21
       ],
       "battery": 318,
       "carrying": false,
-      "state": "EXIT_WAREHOUSE"
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 182,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        11,
+        22
+      ],
+      "battery": 317,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 182,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        23
+      ],
+      "battery": 319,
+      "carrying": false,
+      "state": "EXPLORE"
     },
     {
       "tick": 182,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        14,
-        0
+        7,
+        19
       ],
       "battery": 320,
       "carrying": false,
@@ -10830,23 +10855,11 @@
     },
     {
       "tick": 182,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        20,
-        12
-      ],
-      "battery": 317,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 182,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        14,
-        22
+        17,
+        23
       ],
       "battery": 321,
       "carrying": false,
@@ -10854,22 +10867,10 @@
     },
     {
       "tick": 182,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        15
-      ],
-      "battery": 319,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 182,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        1,
+        5,
         22
       ],
       "battery": 318,
@@ -10878,13 +10879,13 @@
     },
     {
       "tick": 183,
-      "id": 1,
-      "agent_type": "Worker1",
+      "id": 3,
+      "agent_type": "Worker2",
       "pos": [
-        20,
-        11
+        12,
+        22
       ],
-      "battery": 316,
+      "battery": 318,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -10893,8 +10894,8 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        14,
-        23
+        17,
+        22
       ],
       "battery": 320,
       "carrying": false,
@@ -10902,13 +10903,13 @@
     },
     {
       "tick": 183,
-      "id": 2,
-      "agent_type": "Scout2",
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
-        2,
-        22
+        11,
+        23
       ],
-      "battery": 317,
+      "battery": 316,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -10917,8 +10918,8 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        15,
-        0
+        7,
+        20
       ],
       "battery": 319,
       "carrying": false,
@@ -10926,22 +10927,22 @@
     },
     {
       "tick": 183,
-      "id": 3,
-      "agent_type": "Worker2",
+      "id": 2,
+      "agent_type": "Scout2",
       "pos": [
-        11,
-        15
+        6,
+        22
       ],
-      "battery": 318,
+      "battery": 317,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 184,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        3,
+        7,
         22
       ],
       "battery": 316,
@@ -10950,35 +10951,11 @@
     },
     {
       "tick": 184,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        0
-      ],
-      "battery": 318,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 184,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        11
-      ],
-      "battery": 315,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 184,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        14,
-        24
+        18,
+        22
       ],
       "battery": 319,
       "carrying": false,
@@ -10986,25 +10963,37 @@
     },
     {
       "tick": 184,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        23
+      ],
+      "battery": 315,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 184,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
         11,
-        16
+        22
       ],
       "battery": 317,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
-      "tick": 185,
-      "id": 3,
-      "agent_type": "Worker2",
+      "tick": 184,
+      "id": 4,
+      "agent_type": "Worker3",
       "pos": [
-        11,
-        17
+        7,
+        21
       ],
-      "battery": 316,
+      "battery": 318,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -11013,8 +11002,8 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        15,
-        24
+        18,
+        23
       ],
       "battery": 318,
       "carrying": false,
@@ -11022,11 +11011,23 @@
     },
     {
       "tick": 185,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        22
+      ],
+      "battery": 316,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 185,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        17,
-        0
+        7,
+        20
       ],
       "battery": 317,
       "carrying": false,
@@ -11034,10 +11035,22 @@
     },
     {
       "tick": 185,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        11,
+        23
+      ],
+      "battery": 314,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 185,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        4,
+        8,
         22
       ],
       "battery": 315,
@@ -11045,48 +11058,12 @@
       "state": "EXPLORE"
     },
     {
-      "tick": 185,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        12
-      ],
-      "battery": 314,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 186,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        5,
-        22
-      ],
-      "battery": 314,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 186,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        13
-      ],
-      "battery": 313,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
       "tick": 186,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        17,
-        1
+        7,
+        19
       ],
       "battery": 316,
       "carrying": false,
@@ -11097,10 +11074,34 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        16,
+        18,
         24
       ],
       "battery": 317,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 186,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        23
+      ],
+      "battery": 313,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 186,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        9,
+        22
+      ],
+      "battery": 314,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -11110,42 +11111,30 @@
       "agent_type": "Worker2",
       "pos": [
         11,
-        18
+        22
       ],
       "battery": 315,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 187,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        19,
-        14
+        12,
+        22
       ],
       "battery": 312,
       "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 187,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        19
-      ],
-      "battery": 314,
-      "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 187,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        17,
+        19,
         24
       ],
       "battery": 316,
@@ -11157,8 +11146,8 @@
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        6,
-        22
+        9,
+        23
       ],
       "battery": 313,
       "carrying": false,
@@ -11169,56 +11158,44 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        18,
-        1
+        7,
+        18
       ],
       "battery": 315,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
+      "tick": 187,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        23
+      ],
+      "battery": 314,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
       "tick": 188,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        10,
-        19
+        11,
+        22
       ],
       "battery": 313,
       "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 188,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        15
-      ],
-      "battery": 311,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 188,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        1
-      ],
-      "battery": 314,
-      "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 188,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        17,
-        23
+        20,
+        24
       ],
       "battery": 315,
       "carrying": false,
@@ -11229,10 +11206,46 @@
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
-        7,
-        22
+        9,
+        24
       ],
       "battery": 312,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 188,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        17
+      ],
+      "battery": 314,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 188,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        21
+      ],
+      "battery": 311,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 189,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        8,
+        24
+      ],
+      "battery": 311,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -11241,8 +11254,8 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        18,
-        23
+        21,
+        24
       ],
       "battery": 314,
       "carrying": false,
@@ -11250,75 +11263,75 @@
     },
     {
       "tick": 189,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        20
+      ],
+      "battery": 310,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 189,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        22
+      ],
+      "battery": 312,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 189,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        19,
-        2
+        7,
+        16
       ],
       "battery": 313,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
-      "tick": 189,
+      "tick": 190,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        15
+      ],
+      "battery": 312,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 190,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        10,
-        19
-      ],
-      "battery": 312,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 189,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        21
+        11,
+        22
       ],
       "battery": 311,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 189,
+      "tick": 190,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        19,
-        16
-      ],
-      "battery": 310,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 190,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        10,
+        13,
         20
-      ],
-      "battery": 311,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 190,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        17
       ],
       "battery": 309,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
       "tick": 190,
@@ -11326,7 +11339,7 @@
       "agent_type": "Scout2",
       "pos": [
         7,
-        20
+        24
       ],
       "battery": 310,
       "carrying": false,
@@ -11337,970 +11350,910 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        18,
-        24
+        21,
+        23
       ],
       "battery": 313,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 190,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        3
-      ],
-      "battery": 312,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 191,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        19,
-        24
-      ],
-      "battery": 312,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 191,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        4
-      ],
-      "battery": 311,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
       "tick": 191,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
         11,
-        20
-      ],
-      "battery": 310,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 191,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        18
-      ],
-      "battery": 308,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 191,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        19
-      ],
-      "battery": 309,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 192,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        5
-      ],
-      "battery": 310,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 192,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        20,
-        24
-      ],
-      "battery": 311,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 192,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        21
-      ],
-      "battery": 309,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 192,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        18
-      ],
-      "battery": 308,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 192,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        19
-      ],
-      "battery": 307,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 193,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        17
-      ],
-      "battery": 307,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 193,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        21,
-        24
+        23
       ],
       "battery": 310,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 193,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        6
-      ],
-      "battery": 309,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 193,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        22
-      ],
-      "battery": 308,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 193,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        20
-      ],
-      "battery": 306,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 194,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        7
-      ],
-      "battery": 308,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 194,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        21,
-        23
-      ],
-      "battery": 309,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 194,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        20
-      ],
-      "battery": 305,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 194,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        16
-      ],
-      "battery": 306,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 194,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        22
-      ],
-      "battery": 307,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 195,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        22
-      ],
-      "battery": 306,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 195,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        22,
-        23
-      ],
-      "battery": 308,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 195,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        15
-      ],
-      "battery": 305,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 195,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        19,
-        8
-      ],
-      "battery": 307,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 195,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        19
-      ],
-      "battery": 304,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 196,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        14
-      ],
-      "battery": 304,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 196,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        18,
-        8
-      ],
-      "battery": 306,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 196,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        22,
-        24
-      ],
-      "battery": 307,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 196,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        18
-      ],
-      "battery": 303,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 196,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        21
-      ],
-      "battery": 305,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 197,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        17
-      ],
-      "battery": 302,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 197,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        17,
-        8
-      ],
-      "battery": 305,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 197,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        20
-      ],
-      "battery": 304,
-      "carrying": false,
-      "state": "EXIT_WAREHOUSE"
-    },
-    {
-      "tick": 197,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        13
-      ],
-      "battery": 303,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 197,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        23,
-        24
-      ],
-      "battery": 306,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 198,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        16
-      ],
-      "battery": 301,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 198,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        12
-      ],
-      "battery": 302,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 198,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        20
-      ],
-      "battery": 303,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 198,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        24,
-        24
-      ],
-      "battery": 305,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 198,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        8
-      ],
-      "battery": 304,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 199,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        24,
-        23
-      ],
-      "battery": 304,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 199,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        9
-      ],
-      "battery": 303,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 199,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        11
-      ],
-      "battery": 301,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 199,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        19,
-        15
-      ],
-      "battery": 300,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 199,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        11,
-        19
-      ],
-      "battery": 302,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 200,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        10
-      ],
-      "battery": 300,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 200,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        19
-      ],
-      "battery": 301,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 200,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        20,
-        15
-      ],
-      "battery": 299,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 200,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        24,
-        22
-      ],
-      "battery": 303,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 200,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        10
-      ],
-      "battery": 302,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 201,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        10
-      ],
-      "battery": 301,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 201,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        18
-      ],
-      "battery": 300,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 201,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        20,
-        14
-      ],
-      "battery": 298,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 201,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        24,
-        21
-      ],
-      "battery": 302,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 201,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        9
-      ],
-      "battery": 299,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 202,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        11
-      ],
-      "battery": 300,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 202,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        17
-      ],
-      "battery": 299,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 202,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        7,
-        8
-      ],
-      "battery": 298,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 202,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        20,
-        13
-      ],
-      "battery": 297,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 202,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        23,
-        21
-      ],
-      "battery": 301,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 203,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        12,
-        16
-      ],
-      "battery": 298,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 203,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        12
-      ],
-      "battery": 299,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 203,
+      "tick": 191,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
         6,
-        8
+        24
       ],
-      "battery": 297,
+      "battery": 309,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 203,
-      "id": 1,
-      "agent_type": "Worker1",
+      "tick": 191,
+      "id": 4,
+      "agent_type": "Worker3",
       "pos": [
-        20,
-        12
+        7,
+        14
       ],
-      "battery": 296,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "battery": 311,
+      "carrying": false,
+      "state": "RETRIEVE"
     },
     {
-      "tick": 203,
+      "tick": 191,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        23,
-        22
+        20,
+        23
       ],
-      "battery": 300,
+      "battery": 312,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 204,
+      "tick": 191,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        13,
+        19
+      ],
+      "battery": 308,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 192,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        13,
+        18
+      ],
+      "battery": 307,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 192,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        23
+      ],
+      "battery": 309,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 192,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        13
+      ],
+      "battery": 310,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 192,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        22
+      ],
+      "battery": 311,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 192,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        6,
+        23
+      ],
+      "battery": 308,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 193,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        22
+      ],
+      "battery": 308,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 193,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        12
+      ],
+      "battery": 309,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 193,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        22
+      ],
+      "battery": 310,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 193,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        13,
+        17
+      ],
+      "battery": 306,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 193,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
         5,
-        8
+        23
       ],
-      "battery": 296,
+      "battery": 307,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 204,
+      "tick": 194,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        22
+      ],
+      "battery": 309,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 194,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        13
+        7,
+        11
       ],
-      "battery": 298,
+      "battery": 308,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
-      "tick": 204,
+      "tick": 194,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        5,
+        24
+      ],
+      "battery": 306,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 194,
       "id": 3,
       "agent_type": "Worker2",
       "pos": [
-        13,
-        16
+        12,
+        21
       ],
-      "battery": 297,
+      "battery": 307,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 194,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        12,
+        17
+      ],
+      "battery": 305,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 195,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        20
+      ],
+      "battery": 306,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 195,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        23
+      ],
+      "battery": 308,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 195,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        10
+      ],
+      "battery": 307,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
-      "tick": 204,
+      "tick": 195,
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        20,
-        11
+        12,
+        16
       ],
-      "battery": 295,
-      "carrying": true,
-      "state": "RETURN_HOME"
+      "battery": 304,
+      "carrying": false,
+      "state": "EXPLORE"
     },
     {
-      "tick": 204,
+      "tick": 195,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        24
+      ],
+      "battery": 305,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 196,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        20
+      ],
+      "battery": 305,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 196,
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
         23,
         23
       ],
-      "battery": 299,
+      "battery": 307,
       "carrying": false,
       "state": "EXPLORE"
     },
     {
-      "tick": 205,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        21,
-        11
-      ],
-      "battery": 294,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 205,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        4,
-        8
-      ],
-      "battery": 295,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 205,
-      "id": 5,
-      "agent_type": "Scout1",
-      "pos": [
-        22,
-        23
-      ],
-      "battery": 298,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 205,
+      "tick": 196,
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        16,
-        14
+        7,
+        9
       ],
-      "battery": 297,
+      "battery": 306,
       "carrying": false,
       "state": "RETRIEVE"
     },
     {
-      "tick": 205,
-      "id": 3,
-      "agent_type": "Worker2",
+      "tick": 196,
+      "id": 1,
+      "agent_type": "Worker1",
       "pos": [
         13,
-        15
+        16
       ],
-      "battery": 296,
+      "battery": 303,
       "carrying": false,
-      "state": "RETRIEVE"
+      "state": "EXPLORE"
     },
     {
-      "tick": 206,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        14,
-        15
-      ],
-      "battery": 295,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 206,
-      "id": 4,
-      "agent_type": "Worker3",
-      "pos": [
-        16,
-        15
-      ],
-      "battery": 296,
-      "carrying": false,
-      "state": "RETRIEVE"
-    },
-    {
-      "tick": 206,
-      "id": 1,
-      "agent_type": "Worker1",
-      "pos": [
-        22,
-        11
-      ],
-      "battery": 293,
-      "carrying": true,
-      "state": "RETURN_HOME"
-    },
-    {
-      "tick": 206,
+      "tick": 196,
       "id": 2,
       "agent_type": "Scout2",
       "pos": [
         3,
+        24
+      ],
+      "battery": 304,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 197,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        13,
+        15
+      ],
+      "battery": 302,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 197,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        21
+      ],
+      "battery": 304,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 197,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        23
+      ],
+      "battery": 306,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 197,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
         8
       ],
+      "battery": 305,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 197,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        24
+      ],
+      "battery": 303,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 198,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        24
+      ],
+      "battery": 305,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 198,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        8,
+        8
+      ],
+      "battery": 304,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 198,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        20
+      ],
+      "battery": 303,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 198,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        24
+      ],
+      "battery": 302,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 198,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        14,
+        15
+      ],
+      "battery": 301,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 199,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        24
+      ],
+      "battery": 304,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 199,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        15,
+        15
+      ],
+      "battery": 300,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 199,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        19
+      ],
+      "battery": 302,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 199,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        24
+      ],
+      "battery": 301,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 199,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        9,
+        8
+      ],
+      "battery": 303,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 200,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        8
+      ],
+      "battery": 302,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 200,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        23
+      ],
+      "battery": 300,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 200,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        24
+      ],
+      "battery": 303,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 200,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        18
+      ],
+      "battery": 301,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 200,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        15
+      ],
+      "battery": 299,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 201,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        9
+      ],
+      "battery": 301,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 201,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        23
+      ],
+      "battery": 299,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 201,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        24
+      ],
+      "battery": 302,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 201,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        10,
+        18
+      ],
+      "battery": 300,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 201,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        14
+      ],
+      "battery": 298,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 202,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        10,
+        17
+      ],
+      "battery": 299,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 202,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        23
+      ],
+      "battery": 298,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 202,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        10
+      ],
+      "battery": 300,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 202,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        13
+      ],
+      "battery": 297,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 202,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        24
+      ],
+      "battery": 301,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 203,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        24
+      ],
+      "battery": 300,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 203,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        12
+      ],
+      "battery": 296,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 203,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        11
+      ],
+      "battery": 299,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 203,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        23
+      ],
+      "battery": 297,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 203,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        10,
+        16
+      ],
+      "battery": 298,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 204,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        12
+      ],
+      "battery": 298,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 204,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        16
+      ],
+      "battery": 297,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 204,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        23
+      ],
+      "battery": 299,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 204,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        23
+      ],
+      "battery": 296,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 204,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        11
+      ],
+      "battery": 295,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 205,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        22
+      ],
+      "battery": 295,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 205,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        13
+      ],
+      "battery": 297,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 205,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        10
+      ],
       "battery": 294,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 205,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        15
+      ],
+      "battery": 296,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 205,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        22
+      ],
+      "battery": 298,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -12309,10 +12262,70 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        22,
-        22
+        19,
+        21
       ],
       "battery": 297,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 206,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        15
+      ],
+      "battery": 295,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 206,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        21
+      ],
+      "battery": 294,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 206,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        10,
+        14
+      ],
+      "battery": 296,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 206,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        10
+      ],
+      "battery": 293,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 207,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        16
+      ],
+      "battery": 294,
       "carrying": false,
       "state": "EXPLORE"
     },
@@ -12321,34 +12334,10 @@
       "id": 4,
       "agent_type": "Worker3",
       "pos": [
-        17,
+        10,
         15
       ],
       "battery": 295,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 207,
-      "id": 2,
-      "agent_type": "Scout2",
-      "pos": [
-        2,
-        8
-      ],
-      "battery": 293,
-      "carrying": false,
-      "state": "EXPLORE"
-    },
-    {
-      "tick": 207,
-      "id": 3,
-      "agent_type": "Worker2",
-      "pos": [
-        15,
-        15
-      ],
-      "battery": 294,
       "carrying": false,
       "state": "RETRIEVE"
     },
@@ -12357,8 +12346,8 @@
       "id": 5,
       "agent_type": "Scout1",
       "pos": [
-        21,
-        22
+        19,
+        20
       ],
       "battery": 296,
       "carrying": false,
@@ -12369,12 +12358,4524 @@
       "id": 1,
       "agent_type": "Worker1",
       "pos": [
-        22,
-        11
+        16,
+        9
+      ],
+      "battery": 292,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 207,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        20
+      ],
+      "battery": 293,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 208,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        9,
+        15
+      ],
+      "battery": 294,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 208,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        19
+      ],
+      "battery": 295,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 208,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        19
       ],
       "battery": 292,
       "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 208,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        17
+      ],
+      "battery": 293,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 208,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        16,
+        8
+      ],
+      "battery": 291,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 209,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        17,
+        8
+      ],
+      "battery": 290,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 209,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        8,
+        15
+      ],
+      "battery": 293,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 209,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        18
+      ],
+      "battery": 294,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 209,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        18
+      ],
+      "battery": 292,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 209,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        18
+      ],
+      "battery": 291,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 210,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        15
+      ],
+      "battery": 292,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 210,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        18,
+        8
+      ],
+      "battery": 289,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 210,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        19
+      ],
+      "battery": 291,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 210,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        17
+      ],
+      "battery": 290,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 210,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        17
+      ],
+      "battery": 293,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 211,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        8
+      ],
+      "battery": 288,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 211,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        16
+      ],
+      "battery": 292,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 211,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        16
+      ],
+      "battery": 289,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 211,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        19
+      ],
+      "battery": 290,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 211,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        6,
+        15
+      ],
+      "battery": 291,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 212,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        5,
+        15
+      ],
+      "battery": 290,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 212,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        15
+      ],
+      "battery": 291,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 212,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        9
+      ],
+      "battery": 287,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 212,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        20
+      ],
+      "battery": 289,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 212,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        15
+      ],
+      "battery": 288,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 213,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        18,
+        15
+      ],
+      "battery": 290,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 213,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        15
+      ],
+      "battery": 287,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 213,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        15
+      ],
+      "battery": 289,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 213,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        20
+      ],
+      "battery": 288,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 213,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        10
+      ],
+      "battery": 286,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 214,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        11
+      ],
+      "battery": 285,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 214,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        17,
+        15
+      ],
+      "battery": 289,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 214,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        14
+      ],
+      "battery": 288,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 214,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        15
+      ],
+      "battery": 286,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 214,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        19
+      ],
+      "battery": 287,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 215,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        19
+      ],
+      "battery": 286,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 215,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        11
+      ],
+      "battery": 284,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 215,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        13
+      ],
+      "battery": 287,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 215,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        15
+      ],
+      "battery": 288,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 215,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        15
+      ],
+      "battery": 285,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 216,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        16
+      ],
+      "battery": 287,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 216,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        10,
+        19
+      ],
+      "battery": 285,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 216,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        16
+      ],
+      "battery": 284,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 216,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        11
+      ],
+      "battery": 283,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 216,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        12
+      ],
+      "battery": 286,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 217,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        11
+      ],
+      "battery": 285,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 217,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        17
+      ],
+      "battery": 286,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 217,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        17
+      ],
+      "battery": 283,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 217,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        10,
+        20
+      ],
+      "battery": 284,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 217,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 282,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 218,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        18
+      ],
+      "battery": 285,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 218,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 281,
+      "carrying": false,
       "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 218,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        20
+      ],
+      "battery": 283,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 218,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        18
+      ],
+      "battery": 282,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 218,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        11
+      ],
+      "battery": 284,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 219,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        11
+      ],
+      "battery": 283,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 219,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        12
+      ],
+      "battery": 280,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 219,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        21
+      ],
+      "battery": 282,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 219,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        19
+      ],
+      "battery": 281,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 219,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        19
+      ],
+      "battery": 284,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 220,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        20
+      ],
+      "battery": 283,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 220,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        22
+      ],
+      "battery": 281,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 220,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        12
+      ],
+      "battery": 279,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 220,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        20
+      ],
+      "battery": 280,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 220,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        11
+      ],
+      "battery": 282,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 221,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        11,
+        23
+      ],
+      "battery": 280,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 221,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        12
+      ],
+      "battery": 281,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 221,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        21
+      ],
+      "battery": 282,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 221,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        20
+      ],
+      "battery": 279,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 221,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        12
+      ],
+      "battery": 278,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 222,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        22
+      ],
+      "battery": 281,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 222,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        11
+      ],
+      "battery": 277,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 222,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        23
+      ],
+      "battery": 279,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 222,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        19
+      ],
+      "battery": 278,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 222,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        12
+      ],
+      "battery": 280,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 223,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        12
+      ],
+      "battery": 279,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 223,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        15,
+        22
+      ],
+      "battery": 280,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 223,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        22
+      ],
+      "battery": 278,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 223,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        11
+      ],
+      "battery": 276,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 223,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        18
+      ],
+      "battery": 277,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 224,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        21
+      ],
+      "battery": 277,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 224,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 275,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 224,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        17
+      ],
+      "battery": 276,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 224,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        12
+      ],
+      "battery": 278,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 224,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        14,
+        22
+      ],
+      "battery": 279,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 225,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        11
+      ],
+      "battery": 274,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 225,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        12,
+        20
+      ],
+      "battery": 276,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 225,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        11
+      ],
+      "battery": 277,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 225,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        16
+      ],
+      "battery": 275,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 225,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        14,
+        23
+      ],
+      "battery": 278,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 226,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        15
+      ],
+      "battery": 274,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 226,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        12
+      ],
+      "battery": 273,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 226,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        20
+      ],
+      "battery": 275,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 226,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        10
+      ],
+      "battery": 276,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 226,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        14,
+        24
+      ],
+      "battery": 277,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 227,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        9
+      ],
+      "battery": 275,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 227,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        15,
+        24
+      ],
+      "battery": 276,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 227,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        19
+      ],
+      "battery": 274,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 227,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        12
+      ],
+      "battery": 272,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 227,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        14
+      ],
+      "battery": 273,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 228,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 271,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 228,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        15,
+        23
+      ],
+      "battery": 275,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 228,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        9
+      ],
+      "battery": 274,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 228,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        14
+      ],
+      "battery": 272,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 228,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        18
+      ],
+      "battery": 273,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 229,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        14
+      ],
+      "battery": 271,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 229,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        9
+      ],
+      "battery": 273,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 229,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        17
+      ],
+      "battery": 272,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 229,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        11
+      ],
+      "battery": 270,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 229,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        23
+      ],
+      "battery": 274,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 230,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        16,
+        24
+      ],
+      "battery": 273,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 230,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        9
+      ],
+      "battery": 272,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 230,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        16
+      ],
+      "battery": 271,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 230,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        14
+      ],
+      "battery": 270,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 230,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        12
+      ],
+      "battery": 269,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 231,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        17,
+        24
+      ],
+      "battery": 272,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 231,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        9
+      ],
+      "battery": 271,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 231,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        15
+      ],
+      "battery": 269,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 231,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        12
+      ],
+      "battery": 268,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 231,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        15
+      ],
+      "battery": 270,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 232,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        8
+      ],
+      "battery": 270,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 232,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        14
+      ],
+      "battery": 269,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 232,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        12
+      ],
+      "battery": 267,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 232,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        15
+      ],
+      "battery": 268,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 232,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        17,
+        23
+      ],
+      "battery": 271,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 233,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        17,
+        22
+      ],
+      "battery": 270,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 233,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        8
+      ],
+      "battery": 269,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 233,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        15
+      ],
+      "battery": 267,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 233,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        12
+      ],
+      "battery": 266,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 233,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        13
+      ],
+      "battery": 268,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 234,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        16
+      ],
+      "battery": 266,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 234,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        8
+      ],
+      "battery": 268,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 234,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        12
+      ],
+      "battery": 267,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 234,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        13
+      ],
+      "battery": 265,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 234,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        18,
+        22
+      ],
+      "battery": 269,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 235,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        11
+      ],
+      "battery": 266,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 235,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        17
+      ],
+      "battery": 265,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 235,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        18,
+        23
+      ],
+      "battery": 268,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 235,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        8
+      ],
+      "battery": 267,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 235,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        14
+      ],
+      "battery": 264,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 236,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        18
+      ],
+      "battery": 264,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 236,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        8
+      ],
+      "battery": 266,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 236,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        18,
+        24
+      ],
+      "battery": 267,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 236,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        10
+      ],
+      "battery": 265,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 236,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        15
+      ],
+      "battery": 263,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 237,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        24
+      ],
+      "battery": 266,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 237,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        9
+      ],
+      "battery": 264,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 237,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        15
+      ],
+      "battery": 262,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 237,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        7
+      ],
+      "battery": 265,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 237,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        19
+      ],
+      "battery": 263,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 238,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        15
+      ],
+      "battery": 261,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 238,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        23
+      ],
+      "battery": 265,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 238,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        6
+      ],
+      "battery": 264,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 238,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        20
+      ],
+      "battery": 262,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 238,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        13,
+        8
+      ],
+      "battery": 263,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 239,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        21
+      ],
+      "battery": 261,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 239,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        14,
+        8
+      ],
+      "battery": 262,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 239,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        16
+      ],
+      "battery": 260,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 239,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        5
+      ],
+      "battery": 263,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 239,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        23
+      ],
+      "battery": 264,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 240,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        21
+      ],
+      "battery": 260,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 240,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        4
+      ],
+      "battery": 262,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 240,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        23
+      ],
+      "battery": 263,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 240,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        16
+      ],
+      "battery": 259,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 240,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        15,
+        8
+      ],
+      "battery": 261,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 241,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        22
+      ],
+      "battery": 262,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 241,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        17
+      ],
+      "battery": 258,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 241,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        22
+      ],
+      "battery": 259,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 241,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        8
+      ],
+      "battery": 260,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 241,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        3
+      ],
+      "battery": 261,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 242,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        22
+      ],
+      "battery": 258,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 242,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        22
+      ],
+      "battery": 261,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 242,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        17,
+        8
+      ],
+      "battery": 259,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 242,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        2
+      ],
+      "battery": 260,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 242,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        17
+      ],
+      "battery": 257,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 243,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        22
+      ],
+      "battery": 257,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 243,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        1
+      ],
+      "battery": 259,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 243,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        18
+      ],
+      "battery": 256,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 243,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        18,
+        8
+      ],
+      "battery": 258,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 243,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        22
+      ],
+      "battery": 260,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 244,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        21
+      ],
+      "battery": 259,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 244,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        22
+      ],
+      "battery": 256,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 244,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        19
+      ],
+      "battery": 255,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 244,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        8
+      ],
+      "battery": 257,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 244,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        1
+      ],
+      "battery": 258,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 245,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        20
+      ],
+      "battery": 254,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 245,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        1
+      ],
+      "battery": 257,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 245,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        23
+      ],
+      "battery": 255,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 245,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        20
+      ],
+      "battery": 258,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 245,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        9
+      ],
+      "battery": 256,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 246,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        19
+      ],
+      "battery": 257,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 246,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        21
+      ],
+      "battery": 253,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 246,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        10
+      ],
+      "battery": 255,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 246,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        24
+      ],
+      "battery": 254,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 246,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        1
+      ],
+      "battery": 256,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 247,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        24
+      ],
+      "battery": 253,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 247,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        18
+      ],
+      "battery": 256,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 247,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        2
+      ],
+      "battery": 255,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 247,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        11
+      ],
+      "battery": 254,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 247,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        22
+      ],
+      "battery": 252,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 248,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        3
+      ],
+      "battery": 254,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 248,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        24
+      ],
+      "battery": 252,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 248,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        20,
+        11
+      ],
+      "battery": 253,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 248,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        22
+      ],
+      "battery": 251,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 248,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        17
+      ],
+      "battery": 255,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 249,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        16
+      ],
+      "battery": 254,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 249,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        4
+      ],
+      "battery": 253,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 249,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        21
+      ],
+      "battery": 250,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 249,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        21,
+        11
+      ],
+      "battery": 252,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 249,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        24
+      ],
+      "battery": 251,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 250,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 251,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 250,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        23
+      ],
+      "battery": 250,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 250,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        5
+      ],
+      "battery": 252,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 250,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        20
+      ],
+      "battery": 249,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 250,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        15
+      ],
+      "battery": 253,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 251,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        14
+      ],
+      "battery": 252,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 251,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        6
+      ],
+      "battery": 251,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 251,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        23,
+        11
+      ],
+      "battery": 250,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 251,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        20
+      ],
+      "battery": 248,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 251,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        23
+      ],
+      "battery": 249,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 252,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        23,
+        12
+      ],
+      "battery": 249,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 252,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        7
+      ],
+      "battery": 250,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 252,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        23
+      ],
+      "battery": 248,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 252,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        21
+      ],
+      "battery": 247,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 252,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        13
+      ],
+      "battery": 251,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 253,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        22
+      ],
+      "battery": 246,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 253,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        22
+      ],
+      "battery": 247,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 253,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        22,
+        12
+      ],
+      "battery": 248,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 253,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        7
+      ],
+      "battery": 249,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 253,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        19,
+        12
+      ],
+      "battery": 250,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 254,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        6
+      ],
+      "battery": 248,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 254,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        21,
+        12
+      ],
+      "battery": 247,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 254,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        22
+      ],
+      "battery": 246,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 254,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        12
+      ],
+      "battery": 249,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 254,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        23
+      ],
+      "battery": 245,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 255,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        22,
+        12
+      ],
+      "battery": 246,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 255,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        21
+      ],
+      "battery": 245,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 255,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        23
+      ],
+      "battery": 244,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 255,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        13
+      ],
+      "battery": 248,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 255,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        5
+      ],
+      "battery": 247,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 256,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        23
+      ],
+      "battery": 243,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 256,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        4
+      ],
+      "battery": 246,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 256,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        21,
+        12
+      ],
+      "battery": 245,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 256,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        21
+      ],
+      "battery": 244,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 256,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        14
+      ],
+      "battery": 247,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 257,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        20,
+        12
+      ],
+      "battery": 244,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 257,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        3
+      ],
+      "battery": 245,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 257,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        20
+      ],
+      "battery": 243,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 257,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        14
+      ],
+      "battery": 246,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 257,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        24,
+        24
+      ],
+      "battery": 242,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 258,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        14
+      ],
+      "battery": 245,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 258,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        2
+      ],
+      "battery": 244,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 258,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        19
+      ],
+      "battery": 242,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 258,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        12
+      ],
+      "battery": 243,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 258,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        23,
+        24
+      ],
+      "battery": 241,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 259,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        13
+      ],
+      "battery": 242,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 259,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        14
+      ],
+      "battery": 244,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 259,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        24
+      ],
+      "battery": 240,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 259,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        18
+      ],
+      "battery": 241,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 259,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        1
+      ],
+      "battery": 243,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 260,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        14
+      ],
+      "battery": 243,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 260,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        0,
+        0
+      ],
+      "battery": 242,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 260,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        17
+      ],
+      "battery": 240,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 260,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        24
+      ],
+      "battery": 239,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 260,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        14
+      ],
+      "battery": 241,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 261,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        15
+      ],
+      "battery": 240,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 261,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        16
+      ],
+      "battery": 239,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 261,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        1,
+        0
+      ],
+      "battery": 241,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 261,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        24
+      ],
+      "battery": 238,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 261,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        15
+      ],
+      "battery": 242,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 262,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        2,
+        0
+      ],
+      "battery": 240,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 262,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        23
+      ],
+      "battery": 237,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 262,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        16
+      ],
+      "battery": 241,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 262,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        15
+      ],
+      "battery": 238,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 262,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        18,
+        15
+      ],
+      "battery": 239,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 263,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        14
+      ],
+      "battery": 237,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 263,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        23
+      ],
+      "battery": 236,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 263,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        16
+      ],
+      "battery": 240,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 263,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        17,
+        15
+      ],
+      "battery": 238,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 263,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        3,
+        0
+      ],
+      "battery": 239,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 264,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        22
+      ],
+      "battery": 235,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 264,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        0
+      ],
+      "battery": 238,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 264,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        15
+      ],
+      "battery": 237,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 264,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        15
+      ],
+      "battery": 239,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 264,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        14
+      ],
+      "battery": 236,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 265,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        5,
+        0
+      ],
+      "battery": 237,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 265,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        15
+      ],
+      "battery": 238,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 265,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        22
+      ],
+      "battery": 234,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 265,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        14
+      ],
+      "battery": 235,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 265,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        16
+      ],
+      "battery": 236,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 266,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        5,
+        1
+      ],
+      "battery": 236,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 266,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        14
+      ],
+      "battery": 234,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 266,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        15
+      ],
+      "battery": 237,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 266,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        22
+      ],
+      "battery": 233,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 266,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        17
+      ],
+      "battery": 235,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 267,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        6,
+        1
+      ],
+      "battery": 235,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 267,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        15
+      ],
+      "battery": 236,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 267,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        14
+      ],
+      "battery": 233,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 267,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        21
+      ],
+      "battery": 232,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 267,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        18
+      ],
+      "battery": 234,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 268,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        19
+      ],
+      "battery": 233,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 268,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        20
+      ],
+      "battery": 231,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 268,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        20,
+        14
+      ],
+      "battery": 235,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 268,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        13
+      ],
+      "battery": 232,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 268,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        6,
+        0
+      ],
+      "battery": 234,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 269,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        20
+      ],
+      "battery": 230,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 269,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        0
+      ],
+      "battery": 233,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 269,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        12
+      ],
+      "battery": 231,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 269,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        20
+      ],
+      "battery": 232,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 269,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        21,
+        14
+      ],
+      "battery": 234,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 270,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        21
+      ],
+      "battery": 231,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 270,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        1
+      ],
+      "battery": 232,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 270,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        14
+      ],
+      "battery": 233,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 270,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        11
+      ],
+      "battery": 230,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 270,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        19
+      ],
+      "battery": 229,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 271,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        22
+      ],
+      "battery": 230,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 271,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        18
+      ],
+      "battery": 228,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 271,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        2
+      ],
+      "battery": 231,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 271,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        10
+      ],
+      "battery": 229,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 271,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        14
+      ],
+      "battery": 232,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 272,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        17
+      ],
+      "battery": 227,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 272,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        3
+      ],
+      "battery": 230,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 272,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        14
+      ],
+      "battery": 231,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 272,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        17,
+        22
+      ],
+      "battery": 229,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 272,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        9
+      ],
+      "battery": 228,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 273,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        15
+      ],
+      "battery": 230,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 273,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        16
+      ],
+      "battery": 226,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 273,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        4
+      ],
+      "battery": 229,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 273,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        9
+      ],
+      "battery": 227,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 273,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        18,
+        22
+      ],
+      "battery": 228,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 274,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        18,
+        23
+      ],
+      "battery": 227,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 274,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        15
+      ],
+      "battery": 225,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 274,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        9
+      ],
+      "battery": 226,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 274,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        16
+      ],
+      "battery": 229,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 274,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        5
+      ],
+      "battery": 228,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 275,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        14
+      ],
+      "battery": 224,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 275,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        6
+      ],
+      "battery": 227,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 275,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        17
+      ],
+      "battery": 228,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 275,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        9
+      ],
+      "battery": 225,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 275,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        23
+      ],
+      "battery": 226,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 276,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        7
+      ],
+      "battery": 226,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 276,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        19,
+        24
+      ],
+      "battery": 225,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 276,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        19,
+        13
+      ],
+      "battery": 223,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 276,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        24,
+        18
+      ],
+      "battery": 227,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 276,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        9
+      ],
+      "battery": 224,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 277,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        7,
+        8
+      ],
+      "battery": 225,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 277,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        0,
+        8
+      ],
+      "battery": 223,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 277,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        18,
+        24
+      ],
+      "battery": 224,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 277,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        13
+      ],
+      "battery": 222,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 277,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        18
+      ],
+      "battery": 226,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 278,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        19
+      ],
+      "battery": 225,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 278,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        6,
+        8
+      ],
+      "battery": 224,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 278,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        1,
+        8
+      ],
+      "battery": 222,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 278,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        17,
+        24
+      ],
+      "battery": 223,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 278,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        12
+      ],
+      "battery": 221,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 279,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        5,
+        8
+      ],
+      "battery": 223,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 279,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        20,
+        11
+      ],
+      "battery": 220,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 279,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        19
+      ],
+      "battery": 224,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 279,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        2,
+        8
+      ],
+      "battery": 221,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 279,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        17,
+        23
+      ],
+      "battery": 222,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 280,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        21,
+        11
+      ],
+      "battery": 219,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 280,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        8
+      ],
+      "battery": 220,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 280,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        16,
+        23
+      ],
+      "battery": 221,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 280,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        18
+      ],
+      "battery": 223,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 280,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        8
+      ],
+      "battery": 222,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 281,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        3,
+        9
+      ],
+      "battery": 219,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 281,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        7
+      ],
+      "battery": 221,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 281,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 218,
+      "carrying": true,
+      "state": "RETURN_HOME"
+    },
+    {
+      "tick": 281,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        22,
+        17
+      ],
+      "battery": 222,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 281,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        15,
+        23
+      ],
+      "battery": 220,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 282,
+      "id": 2,
+      "agent_type": "Scout2",
+      "pos": [
+        4,
+        9
+      ],
+      "battery": 218,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 282,
+      "id": 4,
+      "agent_type": "Worker3",
+      "pos": [
+        4,
+        6
+      ],
+      "battery": 220,
+      "carrying": false,
+      "state": "EXPLORE"
+    },
+    {
+      "tick": 282,
+      "id": 1,
+      "agent_type": "Worker1",
+      "pos": [
+        22,
+        11
+      ],
+      "battery": 217,
+      "carrying": false,
+      "state": "EXIT_WAREHOUSE"
+    },
+    {
+      "tick": 282,
+      "id": 3,
+      "agent_type": "Worker2",
+      "pos": [
+        15,
+        22
+      ],
+      "battery": 219,
+      "carrying": false,
+      "state": "RETRIEVE"
+    },
+    {
+      "tick": 282,
+      "id": 5,
+      "agent_type": "Scout1",
+      "pos": [
+        23,
+        17
+      ],
+      "battery": 221,
+      "carrying": false,
+      "state": "EXPLORE"
     }
   ]
 }

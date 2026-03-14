@@ -1,7 +1,7 @@
 import random
 from src.agents.base_agent import BaseAgent
 from src.pathfinding import evaluate_utility, get_valid_local_moves
-from src.config import STRESS_MAX
+from src.config import STRESS_MAX, WAREHOUSE, ENTRANCE, EXIT, EMPTY,EMERGENCY_DROP_BATTERY
 
 
 class Worker1(BaseAgent):
@@ -41,7 +41,7 @@ class Worker1(BaseAgent):
             return
 
         if self.state == 'EXIT_WAREHOUSE':
-            if env.grid[self.pos[0]][self.pos[1]] not in [2, 3, 4]:
+            if env.grid[self.pos[0]][self.pos[1]] not in [WAREHOUSE, ENTRANCE, EXIT]:
                 self.state = 'EXPLORE'
                 self.clear_reservation(env)
         elif self.state not in ['RETURN_HOME', 'RETURN_BASE']:
@@ -73,7 +73,7 @@ class Worker1(BaseAgent):
         best_obj = None
         best_dist = float('inf')
         for cell, data in self.local_map.items():
-            if data.get('status') == 'FOUND':
+            if data.get('status') in ['FOUND', 'ABANDONED']:
                 dist = abs(cell[0] - self.pos[0]) + abs(cell[1] - self.pos[1])
                 if dist < best_dist:
                     best_dist = dist
@@ -123,7 +123,7 @@ class Worker1(BaseAgent):
 
     def _handle_return_home(self, env, tick):
         # Consegna: l'agente e' sulla cella di tipo WAREHOUSE (2)
-        if env.grid[self.pos[0]][self.pos[1]] == 2 and self.carrying:
+        if env.grid[self.pos[0]][self.pos[1]] == WAREHOUSE and self.carrying:
             env.deliver_object(self.carrying_obj[0], self.carrying_obj[1])
             env.log_traffic(self.pos[0], self.pos[1])
             self.carrying = False
@@ -132,7 +132,7 @@ class Worker1(BaseAgent):
             return
 
         # Se sulla cella ENTRANCE (3), cerca la cella WAREHOUSE adiacente
-        if env.grid[self.pos[0]][self.pos[1]] == 3:
+        if env.grid[self.pos[0]][self.pos[1]] == ENTRANCE:
             valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
             for nr, nc in valid_moves:
                 if env.grid[nr][nc] == 2:
@@ -140,11 +140,13 @@ class Worker1(BaseAgent):
                     return
 
         # Emergenza batteria: abbandono forzato
-        if self.battery <= 2 and self.carrying:
+        if self.battery <= EMERGENCY_DROP_BATTERY and self.carrying:
             self.carrying = False
             self.mark_abandoned(self.pos[0], self.pos[1], tick)
             env.drop_abandoned_object(self.pos[0], self.pos[1])
             self.carrying_obj = None
+            self.state = 'RETURN_BASE'
+            return # Interrompiamo subito la funzione, non c'è più motivo di valutare i pesi per il magazzino
 
         weights = {'home': 5.0, 'explore': 0.5, 'object': 0.0}
         result = evaluate_utility(env, self.pos[0], self.pos[1], weights)
@@ -176,7 +178,7 @@ class Worker1(BaseAgent):
             else:
                 valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
                 for nr, nc in valid_moves:
-                    if env.grid[nr][nc] == 0:
+                    if env.grid[nr][nc] == EMPTY:
                         self._try_move(env, nr, nc)
                         break
         else:

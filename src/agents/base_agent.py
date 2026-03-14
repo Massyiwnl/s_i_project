@@ -1,7 +1,7 @@
 import random
 from src.config import (
     BATTERY_INITIAL, ENERGY_MARGIN, COMM_RADIUS, VISION_RADIUS,
-    STRESS_MAX, STRESS_RANDOM_STEPS
+    STRESS_MAX, STRESS_RANDOM_STEPS, STIGMA_ON
 )
 from src.communication import get_agents_in_radius, create_inform_message
 from src.sensors import get_visible_objects
@@ -62,10 +62,22 @@ class BaseAgent:
                 self.merge_knowledge(msg['content']['map'], tick)
 
     def _scan_environment(self, env, tick):
+        # 1. LOGICA ESISTENTE: Scansione e salvataggio degli oggetti
         visible_objs = get_visible_objects(env, self.pos[0], self.pos[1], VISION_RADIUS)
         for obj in visible_objs:
             if obj not in self.local_map or self.local_map[obj].get('status') != 'TAKEN':
                 self.local_map[obj] = {'status': 'FOUND', 'ts': tick}
+
+        # 2. NUOVA LOGICA (BUG FIX): Mappatura topologica del terreno visibile
+        for dr in range(-VISION_RADIUS, VISION_RADIUS + 1):
+            for dc in range(-VISION_RADIUS, VISION_RADIUS + 1):
+                if abs(dr) + abs(dc) <= VISION_RADIUS:
+                    nr, nc = self.pos[0] + dr, self.pos[1] + dc
+                    if env.is_walkable(nr, nc):
+                        # Salviamo la cella come EMPTY solo se non è già mappata 
+                        # (per non sovrascrivere accidentalmente un FOUND o un TAKEN)
+                        if (nr, nc) not in self.local_map:
+                            self.local_map[(nr, nc)] = {'status': 'EMPTY', 'ts': tick}
 
     def merge_knowledge(self, incoming_map, tick):
         for cell, data in incoming_map.items():
@@ -172,8 +184,8 @@ class BaseAgent:
 
         for nr, nc in candidate_moves:
             dist = abs(nr - target[0]) + abs(nc - target[1])
-            # Stigmergia per aggirare ostacoli (anti-loop)
-            penalty = env.pheromone_explore[nr][nc] * 0.5
+            # Stigmergia per aggirare ostacoli (anti-loop) - Vincolata a STIGMA_ON
+            penalty = (env.pheromone_explore[nr][nc] * 0.5) if STIGMA_ON else 0.0
             score = dist + penalty
 
             if score < min_score:

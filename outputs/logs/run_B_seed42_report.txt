@@ -40,12 +40,9 @@ TICK     | ID   | EVENTO                    | POSIZIONE    | BATT   | CARICO
 119      | 3    | Stato: EXPLORE            | (11,17)      | 382    | NO
 122      | 1    | Stato: RETRIEVE           | (21,17)      | 377    | NO
 125      | 1    | RACCOLTA OGGETTO          | (20,18)      | 374    | SI
-128      | 3    | Stato: RETRIEVE           | (17,18)      | 373    | NO
-132      | 4    | Stato: RETRIEVE           | (14,20)      | 370    | NO
 135      | 1    | CONSEGNA EFFETTUATA       | (22,11)      | 364    | NO
 139      | 1    | Stato: EXPLORE            | (20,11)      | 360    | NO
 140      | 1    | Stato: RETRIEVE           | (19,11)      | 359    | NO
-143      | 4    | RACCOLTA OGGETTO          | (17,13)      | 359    | SI
-143      | 1    | Stato: EXPLORE            | (16,11)      | 356    | NO
-162      | 3    | Stato: EXPLORE            | (17,13)      | 339    | NO
-163      | 4    | CONSEGNA EFFETTUATA       | (22,11)      | 339    | NO
+145      | 1    | RACCOLTA OGGETTO          | (17,13)      | 354    | SI
+146      | 3    | Stato: RETRIEVE           | (20,23)      | 355    | NO
+153      | 1    | CONSEGNA EFFETTUATA       | (22,11)      | 346    | NO
