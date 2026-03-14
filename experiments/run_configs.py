@@ -64,4 +64,4 @@ if __name__ == '__main__':
     run_experiment('A')
     # FIX: il commento originale era invertito — era B ad essere attiva, non A.
     # Per testare l'istanza B (configurazione C3), decommenta la riga sotto:
-    # run_experiment('B')
+    #run_experiment('B')

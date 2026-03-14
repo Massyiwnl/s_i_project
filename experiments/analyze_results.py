@@ -133,6 +133,6 @@ def analyze_configuration(instance_name):
 if __name__ == '__main__':
     # FIX: il commento originale era invertito — era B ad essere attiva, non A.
     # Per analizzare l'istanza A, decommentare la riga sotto:
-    analyze_configuration('A')
+    # analyze_configuration('A')
     # Per analizzare l'istanza B (configurazione C3), decommentare:
-    # analyze_configuration('B')
+    analyze_configuration('B')
