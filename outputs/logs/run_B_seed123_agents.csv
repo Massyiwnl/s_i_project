@@ -1,6 +1,6 @@
-Agent_ID,Final_State,Battery_Remaining,Distance_Covered,Deliveries,Abandoned_Objects,Ticks_Alive,Pct_Explore,Pct_ReturnHome
-1,EXIT_WAREHOUSE,359,134,3,0,141,54.61%,19.15%
-2,EXPLORE,360,139,0,0,140,100.0%,0.0%
-3,EXPLORE,361,131,3,0,139,68.35%,13.67%
-4,EXIT_WAREHOUSE,363,128,4,0,137,65.69%,16.79%
-5,EXPLORE,364,135,0,0,136,100.0%,0.0%
+Agent_ID,Agent_Type,Final_State,Battery_Remaining,Distance_Covered,Deliveries,Abandoned_Objects,Ticks_Alive,Pct_Explore,Pct_ReturnHome
+1,Worker1,EXPLORE,254,239,2,0,246,79.27%,6.91%
+2,Scout2,EXPLORE,255,243,0,0,245,100.0%,0.0%
+3,Worker2,EXPLORE,256,240,1,0,244,69.26%,2.46%
+4,Worker3,EXIT_WAREHOUSE,257,227,7,0,243,46.5%,19.34%
+5,Scout1,EXPLORE,258,241,0,0,242,100.0%,0.0%
