@@ -3,6 +3,7 @@ import argparse
 import random
 import os
 import numpy as np
+import matplotlib.pyplot as plt
 
 from src.config import MAX_TICKS, NUM_OBJECTS, SEED, GUI, WALL
 from src.environment import Environment
@@ -104,6 +105,7 @@ def main():
                 renderer.draw(active_agents, tick)
                 if renderer.should_quit:
                     print("Simulazione interrotta dall'utente.")
+                    plt.close('all') # <--- AGGIUNGI QUESTA RIGA
                     break
 
             if tick in [100, 250, MAX_TICKS - 1]:
