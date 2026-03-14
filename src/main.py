@@ -15,7 +15,7 @@ from src.agents.scouts import Scout1, Scout2
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--instance', type=str, default='A', choices=['A', 'B'])
+    parser.add_argument('--instance', type=str, default='A', choices=['A', 'B', 'A2'])
     parser.add_argument('--seed', type=int, default=SEED)
     parser.add_argument('--gui', action='store_true')
     # FIX: aggiunto --no-gui per disabilitare esplicitamente il renderer
