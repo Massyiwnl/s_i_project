@@ -1,6 +1,6 @@
 # MAPD Swarm Intelligence — Sistema Multi-Agente Logistico
 
-> Progetto di Artificial & Swarm Intelligence — A.A. 2025/2026  
+> Progetto di Artificial and Evolutionary Intelligence - Modulo Artificial and Swarn Intelligence — A.A. 2025/2026  
 > Massimiliano Cassia
 
 ---
@@ -55,7 +55,7 @@ s_i_project/
 │   ├── environment.py            # Griglia, feromoni, occupancy, log di traffico
 │   ├── communication.py          # Protocollo FIPA-ACL e raggio di comunicazione
 │   ├── sensors.py                # Raggio visivo e line-of-sight (LOS)
-│   ├── pathfinding.py            # Funzione di utilità locale e mosse valide
+│   ├── decision_making.py            # Funzione di utilità locale e mosse valide
 │   ├── main.py                   # Loop di simulazione principale
 │   │
 │   ├── agents/
@@ -92,7 +92,7 @@ s_i_project/
 Il sistema è strutturato a **tre livelli gerarchici** con separazione netta delle responsabilità.
 
 ### Livello 1 — Infrastruttura
-`config.py`, `environment.py`, `communication.py`, `sensors.py`, `pathfinding.py`
+`config.py`, `environment.py`, `communication.py`, `sensors.py`, `decision_making.py`
 
 Gestisce la griglia fisica, i feromoni, la percezione sensoriale e la funzione di decision making. Questo livello non conosce i tipi specifici di agenti.
 
@@ -512,14 +512,14 @@ communication.py
 sensors.py
     └── usa: config.py
 
-pathfinding.py
+decision_making.py
     └── usa: config.py
 
 base_agent.py
-    └── usa: config, communication, sensors, pathfinding
+    └── usa: config, communication, sensors, decision_making
 
 scouts.py / workers.py
-    └── usa: base_agent, pathfinding, config
+    └── usa: base_agent, decision_making, config
 
 main.py
     └── usa: config, environment, logger, renderer, workers, scouts
@@ -536,4 +536,4 @@ run_configs.py / analyze_results.py
 
 ---
 
-*Progetto sviluppato nell'ambito del corso di Artificial & Swarm Intelligence, A.A. 2025/2026.*
+*Progetto sviluppato nell'ambito del corso di Artificial and Evolutionary Intelligence - Modulo Artificial and Swarn Intelligence, A.A. 2025/2026.*
