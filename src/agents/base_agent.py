@@ -1,7 +1,7 @@
 import random
 from src.config import (
     BATTERY_INITIAL, ENERGY_MARGIN, COMM_RADIUS, VISION_RADIUS,
-    STRESS_MAX, STRESS_RANDOM_STEPS, STIGMA_ON
+    STRESS_MAX, STRESS_RANDOM_STEPS, STIGMA_ON, EXPLORE_PENALTY_WEIGHT
 )
 from src.communication import get_agents_in_radius, create_inform_message
 from src.sensors import get_visible_objects
@@ -22,19 +22,13 @@ class BaseAgent:
         self.carrying_obj = None
         self.local_map = {}
         self.stuck_ticks = 0
-        # FIX: traccia la prenotazione corrente per clear_reservation O(1)
-        # invece di scorrere env.intentions per trovare le entry dell'agente.
         self.current_intention = None
 
     def decide_action(self, env, tick):
         raise NotImplementedError("Questo metodo deve essere implementato dalle sottoclassi")
 
     def clear_reservation(self, env):
-        """
-        FIX: O(1) invece di O(n).
-        La versione originale iterava env.intentions cercando v==self.id.
-        Ora l'agente traccia direttamente la propria prenotazione corrente.
-        """
+        """O(1): rimuove solo la prenotazione corrente dell'agente."""
         if self.current_intention is not None:
             env.intentions.pop(self.current_intention, None)
             self.current_intention = None
@@ -42,12 +36,7 @@ class BaseAgent:
     def _sync_with_neighbors(self, env, tick):
         """
         Scambio di conoscenza con i vicini tramite messaggi FIPA-ACL (INFORM).
-
-        FIX 1: passa caller_id=self.id a get_agents_in_radius per escludere
-               se stesso per identita' (non per posizione).
-        FIX 2: rimosso il controllo ridondante msg['receiver'] == self.id
-               che era sempre True per costruzione (receiver_id=self.id
-               viene passato esplicitamente a create_inform_message).
+        Filtra per caller_id=self.id invece che per posizione.
         """
         neighbors = get_agents_in_radius(env, self.pos, COMM_RADIUS, caller_id=self.id)
         for neighbor in neighbors:
@@ -56,26 +45,28 @@ class BaseAgent:
                 receiver_id=self.id,
                 content={'map': neighbor.local_map, 'ts': tick}
             )
-            # Il performative e' sempre INFORM (garantito da create_inform_message).
-            # Il controllo receiver e' rimosso perche' trivialmente sempre vero.
             if msg['performative'] == 'INFORM':
                 self.merge_knowledge(msg['content']['map'], tick)
 
     def _scan_environment(self, env, tick):
-        # 1. LOGICA ESISTENTE: Scansione e salvataggio degli oggetti
+        """
+        Aggiorna la mappa locale con cio' che l'agente percepisce nel raggio visivo.
+
+        Fase 1: salva gli oggetti visibili come FOUND.
+        Fase 2 (fix % esplorazione): mappa le celle vuote percorribili come EMPTY.
+        La navigazione dei Worker non e' influenzata: _has_found_object cerca
+        solo FOUND e ABANDONED, mai EMPTY.
+        """
         visible_objs = get_visible_objects(env, self.pos[0], self.pos[1], VISION_RADIUS)
         for obj in visible_objs:
             if obj not in self.local_map or self.local_map[obj].get('status') != 'TAKEN':
                 self.local_map[obj] = {'status': 'FOUND', 'ts': tick}
 
-        # 2. NUOVA LOGICA (BUG FIX): Mappatura topologica del terreno visibile
         for dr in range(-VISION_RADIUS, VISION_RADIUS + 1):
             for dc in range(-VISION_RADIUS, VISION_RADIUS + 1):
                 if abs(dr) + abs(dc) <= VISION_RADIUS:
                     nr, nc = self.pos[0] + dr, self.pos[1] + dc
                     if env.is_walkable(nr, nc):
-                        # Salviamo la cella come EMPTY solo se non è già mappata 
-                        # (per non sovrascrivere accidentalmente un FOUND o un TAKEN)
                         if (nr, nc) not in self.local_map:
                             self.local_map[(nr, nc)] = {'status': 'EMPTY', 'ts': tick}
 
@@ -94,11 +85,7 @@ class BaseAgent:
         self.local_map[(r, c)] = {'status': 'ABANDONED', 'ts': tick}
 
     def check_battery(self, env):
-        """
-        FIX: usa ENERGY_MARGIN da config per calcolare la soglia di ritorno.
-        Soglia = BATTERY_INITIAL * 0.10 * ENERGY_MARGIN = 500 * 0.10 * 1.20 = 60.
-        La versione originale aveva 50 hardcoded, ignorando ENERGY_MARGIN.
-        """
+        """Soglia = BATTERY_INITIAL * 0.10 * ENERGY_MARGIN = 60."""
         if self.state in ['DEAD', 'FINISHED']:
             self.clear_reservation(env)
             if self.pos in env.occupancy:
@@ -113,10 +100,7 @@ class BaseAgent:
                 self.state = 'RETURN_BASE'
 
     def _dodge_step(self, env):
-        """
-        FIX: usa STRESS_RANDOM_STEPS da config per limitare i tentativi casuali
-        (invece di un numero implicito). Aggiorna current_intention per O(1).
-        """
+        """Tentativo di sblocco casuale, limitato a STRESS_RANDOM_STEPS tentativi."""
         valid_moves = []
         for dr, dc in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
             nr, nc = self.pos[0] + dr, self.pos[1] + dc
@@ -128,7 +112,7 @@ class BaseAgent:
             if (nr, nc) not in env.occupancy and (nr, nc) not in env.intentions:
                 self.clear_reservation(env)
                 env.intentions[(nr, nc)] = self.id
-                self.current_intention = (nr, nc)   # FIX: O(1)
+                self.current_intention = (nr, nc)
                 if self.pos in env.occupancy:
                     env.occupancy.remove(self.pos)
                 self.pos = (nr, nc)
@@ -156,7 +140,7 @@ class BaseAgent:
 
         self.clear_reservation(env)
         env.intentions[(nr, nc)] = self.id
-        self.current_intention = (nr, nc)   # FIX: traccia per O(1)
+        self.current_intention = (nr, nc)
 
         if self.pos in env.occupancy:
             env.occupancy.remove(self.pos)
@@ -164,13 +148,26 @@ class BaseAgent:
         env.occupancy.add(self.pos)
         self.stuck_ticks = 0
 
+        # Deposito feromoni e aggiornamento del set delle celle attive O(|celle_attive|)
         env.pheromone_explore[self.pos[0]][self.pos[1]] += 10.0
+        env.active_pheromone_cells.add(self.pos)
+
         if self.carrying:
             env.pheromone_object[self.pos[0]][self.pos[1]] += 20.0
+            env.active_pheromone_cells.add(self.pos)
+
+        # Registra il passaggio nella cella per la heatmap dei colli di bottiglia.
+        # env.log_movement conta ogni spostamento fisico effettivo di qualsiasi
+        # agente — diverso da env.log_traffic che conta solo le consegne al magazzino.
+        env.log_movement(self.pos[0], self.pos[1])
 
         return True
 
     def _move_towards_target(self, env, target):
+        """
+        Movimento diretto verso un target con anti-loop stigmergico.
+        Rispetta STIGMA_ON e usa EXPLORE_PENALTY_WEIGHT da config.
+        """
         valid_moves = get_valid_local_moves(env, self.pos[0], self.pos[1])
         if not valid_moves:
             return
@@ -184,8 +181,7 @@ class BaseAgent:
 
         for nr, nc in candidate_moves:
             dist = abs(nr - target[0]) + abs(nc - target[1])
-            # Stigmergia per aggirare ostacoli (anti-loop) - Vincolata a STIGMA_ON
-            penalty = (env.pheromone_explore[nr][nc] * 0.5) if STIGMA_ON else 0.0
+            penalty = env.pheromone_explore[nr][nc] * EXPLORE_PENALTY_WEIGHT if STIGMA_ON else 0.0
             score = dist + penalty
 
             if score < min_score:
@@ -201,10 +197,6 @@ class BaseAgent:
     def _handle_return_base(self, env):
         dist_to_base = abs(self.pos[0]) + abs(self.pos[1])
 
-        # FIX: condizione di terminazione piu' conservativa.
-        # La versione originale permetteva FINISHED con dist<=3 e stuck>2,
-        # il che portava agenti a terminare lontani dalla base in ambienti
-        # affollati. Ora il margine e' 1 cella con stuck>STRESS_MAX (=15 tick).
         if dist_to_base == 0 or (dist_to_base <= 1 and self.stuck_ticks > STRESS_MAX):
             self.state = 'FINISHED'
             self.clear_reservation(env)

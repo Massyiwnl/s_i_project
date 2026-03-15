@@ -1,5 +1,5 @@
 from src.environment import Environment
-from src.pathfinding import astar, real_distance
+from src.decision_making import astar, real_distance
 
 def test_fase2():
     env = Environment()

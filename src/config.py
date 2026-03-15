@@ -37,6 +37,10 @@ EVAPORATION_RATE = 0.05
 # FIX: STIGMA_ON ora controllato in pathfinding.py e environment.py.
 # Configurazione C2: imposta a False per disattivare la stigmergia esplorativa.
 STIGMA_ON = True
+# Peso della penalita' esplorativa in _move_towards_target.
+# Era hardcodato a 0.5 direttamente nel codice di base_agent.py,
+# ignorando STIGMA_ON. Ora e' configurabile e rispetta il flag.
+EXPLORE_PENALTY_WEIGHT = 0.5  
 
 # -- Gestione Stress (stuck) --
 # FIX: STRESS_MAX e STRESS_RANDOM_STEPS ora usati in base_agent, scouts e workers.

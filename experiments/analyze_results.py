@@ -4,28 +4,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# FIX: importiamo GRID_SIZE e MAX_TICKS da config invece di usare
-# valori hardcoded (25 e 500). Cosi' se la configurazione cambia,
-# l'analisi rimane automaticamente coerente.
-from src.config import GRID_SIZE, MAX_TICKS
+from src.config import GRID_SIZE
 
 SEEDS = [42, 123, 456, 789, 1337]
-
-# Chiave del checkpoint finale: MAX_TICKS - 1 = 499 (non 500, irraggiungibile).
-# FIX: la versione originale cercava 'tick_500' che non viene mai scritto
-# nel log perche' il loop di main.py termina con tick < MAX_TICKS,
-# quindi l'ultimo tick raggiungibile e' MAX_TICKS - 1 = 499.
-LAST_TICK_KEY = f'tick_{MAX_TICKS - 1}'
 
 
 def analyze_configuration(instance_name):
     ticks, energies, failures, delivered = [], [], [], []
     expl_100, expl_250, expl_last = [], [], []
 
-    # FIX: usa GRID_SIZE da config invece di 25 hardcoded.
-    # Con 25 hardcoded, se si usasse una mappa di dimensione diversa
-    # si otterrebbe un IndexError silenzioso o una heatmap malformata.
-    heatmap_data = np.zeros((GRID_SIZE, GRID_SIZE))
+    # Matrice per la heatmap dei punti di consegna (traffic_log)
+    delivery_heatmap = np.zeros((GRID_SIZE, GRID_SIZE))
+
+    # Matrice per la vera heatmap dei colli di bottiglia (movement_log)
+    movement_heatmap = np.zeros((GRID_SIZE, GRID_SIZE))
 
     for seed in SEEDS:
         filepath = f'outputs/logs/run_{instance_name}_seed{seed}.json'
@@ -33,18 +25,9 @@ def analyze_configuration(instance_name):
             print(f"ATTENZIONE: File {filepath} non trovato. Salto.")
             continue
 
-        # FIX: aggiunto encoding='utf-8' coerente con logger.py che scrive
-        # i file con quella codifica. Su Windows con locale non-UTF-8
-        # l'apertura senza encoding esplicito puo' produrre caratteri corrotti
-        # o UnicodeDecodeError su path/nomi con caratteri non-ASCII.
         with open(filepath, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        # FIX: la versione originale usava 'metrics' ma logger.py scrive
-        # il dizionario con la chiave 'metadata'. Con 'metrics', data.get()
-        # restituisce sempre {} e tutte le statistiche risultano 0
-        # senza nessun errore esplicito — bug silenzioso e totalmente
-        # invalidante per il report.
         metadata = data.get('metadata', {})
 
         ticks.append(metadata.get('ticks_total', 0))
@@ -58,23 +41,29 @@ def analyze_configuration(instance_name):
             expl_100.append(expl['tick_100'])
         if 'tick_250' in expl:
             expl_250.append(expl['tick_250'])
-        # FIX: cerca LAST_TICK_KEY ('tick_499') invece di 'tick_500'.
-        if LAST_TICK_KEY in expl:
-            expl_last.append(expl[LAST_TICK_KEY])
+        # Prende dinamicamente l'ultimo checkpoint disponibile nel log.
+        # Non cerca una chiave fissa ('tick_499') perche' le run che completano
+        # tutti gli oggetti prima del timeout terminano a un tick variabile
+        # (es. tick_322) e quella e' l'unica chiave finale presente nel log.
+        if expl:
+            last_key = max(expl.keys(), key=lambda k: int(k.split('_')[1]))
+            expl_last.append(expl[last_key])
 
-        # Aggregazione Traffico per Heatmap
+        # Aggregazione punti di consegna (traffic_log) per heatmap 1
         traffic = metadata.get('traffic_log', {})
         for coord_str, count in traffic.items():
-            # FIX: il parser originale usava strip('()').split(',') progettato
-            # per chiavi tipo "(5, 3)". Il logger corretto produce chiavi tipo
-            # "[5, 3]" (stringa di lista JSON). strip('()') non rimuove le
-            # parentesi quadre, e int('[5') solleva ValueError a runtime.
-            # json.loads() gestisce correttamente entrambi i formati futuri
-            # e rende il parsing robusto a spazi e varianti di formato.
             coords = json.loads(coord_str)
             r, c = coords[0], coords[1]
             if 0 <= r < GRID_SIZE and 0 <= c < GRID_SIZE:
-                heatmap_data[r][c] += count
+                delivery_heatmap[r][c] += count
+
+        # Aggregazione passaggi di movimento (movement_log) per heatmap 2
+        movement = metadata.get('movement_log', {})
+        for coord_str, count in movement.items():
+            coords = json.loads(coord_str)
+            r, c = coords[0], coords[1]
+            if 0 <= r < GRID_SIZE and 0 <= c < GRID_SIZE:
+                movement_heatmap[r][c] += count
 
     if not ticks:
         print(f"Nessun dato per l'Istanza {instance_name}. "
@@ -97,42 +86,57 @@ def analyze_configuration(instance_name):
         print(f"% Esplorata Tick 250:    "
               f"{np.mean(expl_250):.1f}% ± {np.std(expl_250):.1f}%")
     if expl_last:
-        print(f"% Esplorata Tick {MAX_TICKS - 1}:   "
+        print(f"% Esplorata Tick finale: "
               f"{np.mean(expl_last):.1f}% ± {np.std(expl_last):.1f}%")
     print("===================================================================\n")
 
-    # --- HEATMAP COLLI DI BOTTIGLIA ---
     os.makedirs('outputs/heatmaps', exist_ok=True)
 
-    # FIX: uso di plt.figure() + plt.close() esplicito dopo il salvataggio.
-    # La versione originale non chiudeva la figura: chiamando analyze_configuration
-    # due volte (istanza A poi B), le figure si accumulavano in memoria e
-    # in modalita' interattiva si sovrapponevano visivamente.
-    fig = plt.figure(figsize=(10, 8))
-
-    masked_data = np.ma.masked_where(heatmap_data == 0, heatmap_data)
-
+    # --- HEATMAP 1: PUNTI DI CONSEGNA ---
+    # Mostra le celle di magazzino in cui gli oggetti sono stati effettivamente
+    # depositati. Traccia la distribuzione del carico tra i magazzini disponibili.
+    fig1 = plt.figure(figsize=(10, 8))
+    masked_delivery = np.ma.masked_where(delivery_heatmap == 0, delivery_heatmap)
     sns.heatmap(
-        masked_data,
+        masked_delivery,
+        cmap="Blues",
+        annot=False,
+        cbar_kws={'label': f'Consegne cumulative ({len(ticks)} run)'},
+        square=True
+    )
+    plt.title(f'Punti di Consegna - Istanza {instance_name}')
+    plt.xlabel('Colonne')
+    plt.ylabel('Righe')
+    plt.gca().invert_yaxis()
+    out_path1 = f'outputs/heatmaps/heatmap_consegne_{instance_name}.png'
+    plt.savefig(out_path1, dpi=300, bbox_inches='tight')
+    plt.close(fig1)
+    print(f"--> Heatmap Punti di Consegna salvata in: {out_path1}")
+
+    # --- HEATMAP 2: COLLI DI BOTTIGLIA (traffico reale) ---
+    # Mostra le celle piu' attraversate da tutti gli agenti durante il movimento.
+    # Le zone rosse intense sono i veri colli di bottiglia della mappa:
+    # corridoi obbligati, incroci critici, zone ad alta densita' di transito.
+    fig2 = plt.figure(figsize=(10, 8))
+    masked_movement = np.ma.masked_where(movement_heatmap == 0, movement_heatmap)
+    sns.heatmap(
+        masked_movement,
         cmap="YlOrRd",
         annot=False,
         cbar_kws={'label': f'Passaggi cumulativi ({len(ticks)} run)'},
         square=True
     )
-    plt.title(f'Heatmap Colli di Bottiglia - Istanza {instance_name}')
+    plt.title(f'Heatmap Colli di Bottiglia (Traffico Agenti) - Istanza {instance_name}')
     plt.xlabel('Colonne')
     plt.ylabel('Righe')
     plt.gca().invert_yaxis()
-
-    out_path = f'outputs/heatmaps/heatmap_congestione_{instance_name}.png'
-    plt.savefig(out_path, dpi=300, bbox_inches='tight')
-    plt.close(fig)   # FIX: libera la memoria della figura dopo il salvataggio
-    print(f"--> Heatmap salvata in: {out_path}\n")
+    out_path2 = f'outputs/heatmaps/heatmap_bottleneck_{instance_name}.png'
+    plt.savefig(out_path2, dpi=300, bbox_inches='tight')
+    plt.close(fig2)
+    print(f"--> Heatmap Colli di Bottiglia salvata in: {out_path2}\n")
 
 
 if __name__ == '__main__':
-    # FIX: il commento originale era invertito — era B ad essere attiva, non A.
-    # Per analizzare l'istanza A, decommentare la riga sotto:
     #analyze_configuration('A')
     # Per analizzare l'istanza B (configurazione C3), decommentare:
     analyze_configuration('B')

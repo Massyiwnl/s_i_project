@@ -1,6 +1,6 @@
 from src.environment import Environment
 from src.agents.workers import Worker2
-from src.pathfinding import astar
+from src.decision_making import astar
 
 def test_worker2():
     env = Environment()

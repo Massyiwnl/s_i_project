@@ -21,11 +21,19 @@ class Environment:
         self.intentions = {}
 
         self.occupancy = set()
+        # traffic_log: conta le consegne per cella (chiamato in _handle_return_home).
+        # Traccia solo i punti di deposito degli oggetti nei magazzini.
         self.traffic_log = {}
+        # movement_log: conta i passaggi di tutti gli agenti per ogni cella
+        # (chiamato in _try_move). Traccia il traffico reale di movimento
+        # e permette di generare la vera heatmap dei colli di bottiglia.
+        self.movement_log = {}
         self.delivered = 0
-        # FIX: spawn_queue usa deque per pop O(1) invece di list.pop(0) O(n)
         self.spawn_queue = deque()
         self.active_agents = []
+
+        # Set delle celle con feromone > 0 per update_stigma O(|celle_attive|)
+        self.active_pheromone_cells = set()
 
     def load(self, path):
         with open(path, 'r', encoding='utf-8') as f:
@@ -36,12 +44,9 @@ class Environment:
         self.n = data['metadata']['grid_size']
         self._objects_truth = set(map(tuple, data.get('objects', [])))
 
-        # FIX: normalizza entrance ed exit a tuple per confronti sicuri
-        # (evita confronto lista vs tuple che darebbe sempre False)
         for wh in self.warehouses:
             wh['entrance'] = tuple(wh['entrance'])
             wh['exit'] = tuple(wh['exit'])
-            # 'area' rimane lista di liste per compatibilita' con workers.py
 
         self.pheromone_explore = [[0.0] * self.n for _ in range(self.n)]
         self.pheromone_object = [[0.0] * self.n for _ in range(self.n)]
@@ -50,19 +55,26 @@ class Environment:
 
         self.intentions = {}
         self.traffic_log = {}
+        self.movement_log = {}
         self.occupancy = set()
         self.delivered = 0
         self.spawn_queue = deque()
         self.active_agents = []
+        self.active_pheromone_cells = set()
 
     def _init_home_gradient(self):
-        """Gradiente BFS statico verso l'ingresso dei magazzini."""
+        """
+        Gradiente BFS statico verso l'ingresso dei magazzini.
+        Valore iniziale proporzionale alla mappa (self.n * self.n) per garantire
+        gradiente positivo su qualsiasi dimensione di griglia.
+        """
         self.pheromone_home = [[0.0] * self.n for _ in range(self.n)]
         queue = deque()
+        max_val = float(self.n * self.n)
+
         for wh in self.warehouses:
-            r, c = wh['entrance']  # gia' tuple dopo load
-            # Usa l'area della mappa come picco massimo per garantire copertura totale
-            self.pheromone_home[r][c] = float(self.n * self.n)
+            r, c = wh['entrance']
+            self.pheromone_home[r][c] = max_val
             queue.append((r, c))
 
         visited = set(queue)
@@ -74,18 +86,17 @@ class Environment:
                 if 0 <= nr < self.n and 0 <= nc < self.n and self.grid[nr][nc] != WALL:
                     if (nr, nc) not in visited:
                         visited.add((nr, nc))
-                        # FIX: max(0.0, ...) previene valori negativi su mappe
-                        # con percorsi BFS > 100 celle, che invertirebbero
-                        # l'attrazione verso il magazzino.
                         self.pheromone_home[nr][nc] = max(0.0, current_val - 1.0)
                         queue.append((nr, nc))
 
     def _init_base_gradient(self):
-        """Gradiente BFS statico verso lo spawn (0,0) per il ritorno sicuro."""
+        """
+        Gradiente BFS statico verso lo spawn (0,0) per il ritorno sicuro.
+        """
         self.pheromone_base = [[0.0] * self.n for _ in range(self.n)]
+        max_val = float(self.n * self.n)
         queue = deque([(0, 0)])
-        # Moltiplicatore x2 per garantire che la base abbia un'attrazione sempre prioritaria
-        self.pheromone_base[0][0] = float(self.n * self.n * 2)
+        self.pheromone_base[0][0] = max_val
         visited = set([(0, 0)])
 
         while queue:
@@ -96,7 +107,6 @@ class Environment:
                 if 0 <= nr < self.n and 0 <= nc < self.n and self.grid[nr][nc] != WALL:
                     if (nr, nc) not in visited:
                         visited.add((nr, nc))
-                        # FIX: max(0.0, ...) come per pheromone_home
                         self.pheromone_base[nr][nc] = max(0.0, current_val - 1.0)
                         queue.append((nr, nc))
 
@@ -114,9 +124,7 @@ class Environment:
         self._objects_truth.discard((r, c))
 
     def _warehouse_of(self, r, c, cell_type):
-        """Cerca il magazzino che ha entrance o exit in (r,c)."""
         for wh in self.warehouses:
-            # FIX: confronto tuple a tuple (dopo normalizzazione in load)
             if wh[cell_type] == (r, c):
                 return wh
         return None
@@ -158,41 +166,51 @@ class Environment:
         return True
 
     def update_stigma(self):
-        # FIX: rispetta il flag STIGMA_ON da config.py (Configurazione C2)
         if not STIGMA_ON:
             return
 
-        for r in range(self.n):
-            for c in range(self.n):
-                if self.pheromone_explore[r][c] > 0:
-                    self.pheromone_explore[r][c] *= (1.0 - EVAPORATION_RATE)
-                    if self.pheromone_explore[r][c] < 0.01:
-                        self.pheromone_explore[r][c] = 0.0
+        cells_to_remove = set()
+        for (r, c) in self.active_pheromone_cells:
+            if self.pheromone_explore[r][c] > 0:
+                self.pheromone_explore[r][c] *= (1.0 - EVAPORATION_RATE)
+                if self.pheromone_explore[r][c] < 0.01:
+                    self.pheromone_explore[r][c] = 0.0
 
-                if self.pheromone_object[r][c] > 0:
-                    self.pheromone_object[r][c] *= (1.0 - EVAPORATION_RATE * 2)
-                    if self.pheromone_object[r][c] < 0.01:
-                        self.pheromone_object[r][c] = 0.0
+            if self.pheromone_object[r][c] > 0:
+                self.pheromone_object[r][c] *= (1.0 - EVAPORATION_RATE * 2)
+                if self.pheromone_object[r][c] < 0.01:
+                    self.pheromone_object[r][c] = 0.0
+
+            if (self.pheromone_explore[r][c] == 0.0
+                    and self.pheromone_object[r][c] == 0.0):
+                cells_to_remove.add((r, c))
+
+        self.active_pheromone_cells -= cells_to_remove
 
     def clear_intentions(self):
         self.intentions.clear()
 
     def log_traffic(self, r, c):
+        """Registra una consegna avvenuta nella cella (r, c) di magazzino."""
         if (r, c) not in self.traffic_log:
             self.traffic_log[(r, c)] = 0
         self.traffic_log[(r, c)] += 1
 
+    def log_movement(self, r, c):
+        """
+        Registra il passaggio di un agente nella cella (r, c).
+        Chiamato in base_agent._try_move ad ogni spostamento fisico effettivo.
+        Alimenta la vera heatmap dei colli di bottiglia, distinta da traffic_log
+        che traccia solo i punti di consegna nei magazzini.
+        """
+        if (r, c) not in self.movement_log:
+            self.movement_log[(r, c)] = 0
+        self.movement_log[(r, c)] += 1
+
     def try_spawn_next(self, active_agents):
-        """
-        Tenta di spawnare il prossimo agente in coda.
-        FIX 1: usa deque.popleft() invece di list.pop(0) per O(1).
-        FIX 2: rispetta DEPLOY_RADIUS cercando celle libere entro quella distanza
-                da (0,0), invece di bloccarsi esclusivamente su (0,0).
-        """
         if not self.spawn_queue:
             return
 
-        # Raccoglie candidati di spawn entro DEPLOY_RADIUS da (0,0)
         candidates = []
         for dr in range(-DEPLOY_RADIUS, DEPLOY_RADIUS + 1):
             for dc in range(-DEPLOY_RADIUS, DEPLOY_RADIUS + 1):
@@ -205,7 +223,7 @@ class Environment:
 
         if candidates:
             spawn_pos = random.choice(candidates)
-            agent = self.spawn_queue.popleft()  # FIX: O(1) con deque
+            agent = self.spawn_queue.popleft()
             agent.pos = spawn_pos
             agent.state = 'EXPLORE'
             active_agents.append(agent)

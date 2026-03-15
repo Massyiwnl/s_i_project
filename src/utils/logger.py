@@ -1,16 +1,12 @@
 import json
 import os
-# FIX: import spostato in cima al file invece di essere dentro il metodo dump.
-# La versione originale nascondeva questa dipendenza: guardando gli import
-# del modulo sembrava dipendere solo da json e os, mentre in realta' aveva
-# una dipendenza implicita da src.config che emergeva solo a runtime.
 from src.config import BATTERY_INITIAL, NUM_AGENTS
 
 
 class Logger:
     def __init__(self):
         self.events = []
-        self.exploration_stats = {}  # Salvera' % esplorazione a tick 100, 250, MAX-1
+        self.exploration_stats = {}
 
     def log(self, tick, agent):
         """Registra lo stato dell'agente al tick corrente."""
@@ -48,17 +44,18 @@ class Logger:
             sum((BATTERY_INITIAL - a.battery) for a in env.active_agents) / num_agents
         )
 
-        # FIX: chiavi traffic_log serializzate come str([r, c]) invece di str((r, c)).
-        # La versione originale produceva chiavi tipo "(5, 3)" che non erano
-        # rileggibili come coordinate senza parsing manuale della stringa.
-        # La nuova versione produce "[5, 3]" facilmente parsabile con json.loads().
         metadata = {
             'ticks_total': final_tick,
             'delivered': env.delivered,
             'critical_failures': critical_failures,
             'avg_energy_consumed': round(avg_energy, 2),
             'exploration_percent': self.exploration_stats,
-            'traffic_log': {str(list(k)): v for k, v in env.traffic_log.items()}
+            # traffic_log: conta le consegne per cella di magazzino.
+            # Chiavi serializzate come "[r, c]" parsabili con json.loads().
+            'traffic_log': {str(list(k)): v for k, v in env.traffic_log.items()},
+            # movement_log: conta i passaggi fisici di tutti gli agenti per cella.
+            # Alimenta la vera heatmap dei colli di bottiglia in analyze_results.py.
+            'movement_log': {str(list(k)): v for k, v in env.movement_log.items()}
         }
 
         os.makedirs(os.path.dirname(path), exist_ok=True)
