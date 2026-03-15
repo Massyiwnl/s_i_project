@@ -1,5 +1,5 @@
 from src.agents.base_agent import BaseAgent
-from src.pathfinding import evaluate_utility
+from src.decision_making import evaluate_utility
 from src.config import STRESS_MAX
 
 

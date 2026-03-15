@@ -5,7 +5,7 @@ from src.config import (
 )
 from src.communication import get_agents_in_radius, create_inform_message
 from src.sensors import get_visible_objects
-from src.pathfinding import get_valid_local_moves
+from src.decision_making import get_valid_local_moves
 
 
 def manhattan_distance(p1, p2):

@@ -2,7 +2,7 @@ import json
 import random
 from collections import deque
 from src.config import (
-    EMPTY, WALL, WAREHOUSE, ENTRANCE, EXIT,
+    WALL, ENTRANCE, EXIT,
     EVAPORATION_RATE, STIGMA_ON, DEPLOY_RADIUS
 )
 

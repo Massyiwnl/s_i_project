@@ -1,6 +1,5 @@
-import random
 from src.agents.base_agent import BaseAgent
-from src.pathfinding import evaluate_utility, get_valid_local_moves
+from src.decision_making import evaluate_utility, get_valid_local_moves
 from src.config import STRESS_MAX, WAREHOUSE, ENTRANCE, EXIT, EMPTY,EMERGENCY_DROP_BATTERY
 
 
