@@ -178,7 +178,7 @@ RETURN_BASE ──dist=0──► FINISHED                           │
 
 - **Obiettivo:** massimizzare il recupero di oggetti con strategia aggressiva
 - **Pesi esplorazione:** `{'home': 0.0, 'explore': 0.3, 'object': 3.0}`
-- **Nota:** il peso oggetto alto porta l'agente verso oggetti lontani dalla base, allungando i tempi di ritorno e riducendo paradossalmente il numero di cicli completati — risultato emergente non intuitivo
+- **Nota:** La performance di questo agente è soggetta a forte non-linearità emergente. Prima della correzione del segnale stigmergico (o in mappe molto aperte come l'Istanza A), il peso elevato lo penalizza portandolo troppo lontano. In mappe labirintiche (Istanza B) con il segnale stigmergico corretto depositato dagli Scout, diventa l'agente più produttivo dello sciame.
 
 ### Worker3
 
@@ -213,7 +213,7 @@ Il sistema usa **quattro campi di feromoni** con semantiche distinte:
 | `pheromone_home` | Statico (BFS) | Sistema al caricamento | Guida verso il magazzino più vicino |
 | `pheromone_base` | Statico (BFS) | Sistema al caricamento | Guida verso lo spawn `(0,0)` |
 | `pheromone_explore` | Dinamico | Ogni agente in movimento | Repulsione dalle zone già visitate (anti-loop) |
-| `pheromone_object` | Dinamico | Solo agenti carichi | Segnala rotte verso magazzini (traccia di ritorno) |
+| `pheromone_object` | Dinamico | Solo Scout (al momento della scoperta) | Segnala la posizione esatta degli oggetti rilevati ai Worker |
 
 I gradienti statici usano valore iniziale `n²` per garantire positività su qualsiasi mappa quadrata di lato `n`. I feromoni dinamici evaporano con tasso `EVAPORATION_RATE` ad ogni tick tramite `update_stigma()`, che itera solo le celle attive (set `active_pheromone_cells`) invece dell'intera griglia — O(celle_attive) invece di O(n²).
 
@@ -482,8 +482,6 @@ Tutti i parametri sono centralizzati in `src/config.py`. Modificare i valori lì
 **Nessuna negoziazione esplicita per le risorse.** I conflitti di pickup si risolvono tramite atomicità (chi arriva prima prende). Un protocollo FIPA completo con `REQUEST`/`PROPOSE`/`AGREE` permetterebbe prenotazioni esplicite degli oggetti, ma aumenterebbe il volume di messaggi di un ordine di grandezza.
 
 **Mappa statica.** La topologia non cambia durante la simulazione. In un sistema reale, corridoi potrebbero bloccarsi e nuovi oggetti apparire dinamicamente.
-
-**Paradosso del feromone oggetto.** `pheromone_object` viene depositato durante il ritorno al magazzino, non durante l'andata. La scia punta quindi verso il magazzino invece che verso la sorgente degli oggetti — un Worker che segue questa scia converge verso il deposito invece di trovare nuovi oggetti. Lasciato intenzionalmente come punto di discussione teorica sull'ACO.
 
 **Heatmap aggregata.** `movement_log` somma i passaggi di tutti gli agenti indipendentemente da tipo e stato. Una versione più informativa avrebbe log separati per tipo di agente e per stato FSM.
 
