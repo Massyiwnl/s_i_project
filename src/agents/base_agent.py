@@ -53,9 +53,15 @@ class BaseAgent:
         Aggiorna la mappa locale con cio' che l'agente percepisce nel raggio visivo.
 
         Fase 1: salva gli oggetti visibili come FOUND.
-        Fase 2 (fix % esplorazione): mappa le celle vuote percorribili come EMPTY.
+        Fase 2: mappa le celle vuote percorribili come EMPTY (fix % esplorazione).
         La navigazione dei Worker non e' influenzata: _has_found_object cerca
         solo FOUND e ABANDONED, mai EMPTY.
+
+        Il deposito di pheromone_object sugli oggetti visibili e' responsabilita'
+        esclusiva degli Scout (override in scouts.py). I Worker non depositano
+        mai pheromone_object: questo garantisce che il segnale abbia un unico
+        significato — "qui c'e' un oggetto scoperto da uno Scout" — senza
+        confondersi con le scie di ritorno al magazzino.
         """
         visible_objs = get_visible_objects(env, self.pos[0], self.pos[1], VISION_RADIUS)
         for obj in visible_objs:
@@ -148,17 +154,19 @@ class BaseAgent:
         env.occupancy.add(self.pos)
         self.stuck_ticks = 0
 
-        # Deposito feromoni e aggiornamento del set delle celle attive O(|celle_attive|)
+        # Deposito feromone esplorativo: tutti gli agenti, ad ogni spostamento.
+        # Serve alla repulsione anti-loop (Configurazione C2) e alla heatmap.
         env.pheromone_explore[self.pos[0]][self.pos[1]] += 10.0
         env.active_pheromone_cells.add(self.pos)
 
-        if self.carrying:
-            env.pheromone_object[self.pos[0]][self.pos[1]] += 20.0
-            env.active_pheromone_cells.add(self.pos)
+        # NOTA: pheromone_object NON viene piu' depositato qui.
+        # Il deposito e' responsabilita' esclusiva degli Scout in _scan_environment:
+        # solo loro lo depositano sulla cella esatta degli oggetti scoperti.
+        # Questo garantisce che il segnale pheromone_object significhi sempre e solo
+        # "qui c'e' un oggetto non ancora raccolto", senza ambiguita' con le scie
+        # di ritorno al magazzino che producevano il paradosso ACO precedente.
 
-        # Registra il passaggio nella cella per la heatmap dei colli di bottiglia.
-        # env.log_movement conta ogni spostamento fisico effettivo di qualsiasi
-        # agente — diverso da env.log_traffic che conta solo le consegne al magazzino.
+        # Registro del passaggio per la heatmap dei colli di bottiglia.
         env.log_movement(self.pos[0], self.pos[1])
 
         return True
