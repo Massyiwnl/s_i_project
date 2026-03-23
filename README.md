@@ -67,7 +67,7 @@ s_i_project/
 │       ├── logger.py             # Registrazione eventi e serializzazione JSON
 │       ├── analyzer.py           # Statistiche per agente e report CSV
 │       ├── renderer.py           # Visualizzazione real-time con matplotlib
-│       └── plotter.py            # Generazione tabelle visuali da CSV
+│       
 │
 ├── experiments/
 │   ├── run_configs.py            # Esecuzione automatica di più run in sequenza
