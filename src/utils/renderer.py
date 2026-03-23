@@ -87,27 +87,27 @@ class Renderer:
             print("\n*** Uscita richiesta — salvataggio log in corso... ***")
             self.should_quit = True
 
-    # ── Rendering principale ─────────────────────────────────────────────────
+    # Rendering principale
 
     def draw(self, agents, tick):
         self.ax_map.clear()
         self.ax_bat.clear()
         self._pheromone_im = None  # reset ad ogni frame (ax.clear() invalida tutto)
 
-        # === 1. GRIGLIA BASE ===
+        # 1. GRIGLIA BASE
         self.ax_map.imshow(self.env.grid, cmap=self.cmap, norm=self.norm,
                            zorder=1)
 
-        # === 2. OVERLAY FEROMONE ===
+        # 2. OVERLAY FEROMONE
         if self.pheromone_mode > 0:
             self._draw_pheromone_overlay()
 
-        # === 3. OGGETTI (cerchi arancioni) ===
+        # 3. OGGETTI (cerchi arancioni)
         for r, c in self.env._objects_truth:
             self.ax_map.plot(c, r, 'o', color='orange', markersize=8,
                              markeredgecolor='black', zorder=3)
 
-        # === 4. AGENTI ===
+        # 4. AGENTI
         for agent in agents:
             color_idx = (agent.id - 1) % len(self.agent_colors)
             marker = 's' if agent.carrying else 'o'
@@ -123,7 +123,7 @@ class Renderer:
                 fontsize=8, fontweight='bold', zorder=5
             )
 
-        # === 5. TITOLO E ASSI ===
+        # 5. TITOLO E ASSI
         mode_label = _PHEROMONE_MODES[self.pheromone_mode]
         self.ax_map.set_title(
             f"Tick: {tick} | Oggetti: {self.env.delivered}/{NUM_OBJECTS} | "
@@ -136,7 +136,7 @@ class Renderer:
         self.ax_map.set_yticklabels([])
         self.ax_map.grid(color='gray', linestyle=':', linewidth=0.5, zorder=0)
 
-        # === 6. GRAFICO BATTERIE ===
+        # 6. GRAFICO BATTERIE
         sorted_agents = sorted(agents, key=lambda a: a.id)
         agent_ids  = [str(a.id) for a in sorted_agents]
         batteries  = [max(0, a.battery) for a in sorted_agents]
@@ -160,7 +160,7 @@ class Renderer:
                 ha='center', va='bottom', fontsize=8
             )
 
-        # === 7. PAUSA E TIMING ===
+        # 7. PAUSA E TIMING
         try:
             plt.pause(self.pause_time)
             while self.paused:
@@ -168,7 +168,7 @@ class Renderer:
         except Exception:
             self.should_quit = True
 
-    # ── Layer feromone ───────────────────────────────────────────────────────
+    # Layer feromone 
 
     def _draw_pheromone_overlay(self):
         """
@@ -218,8 +218,7 @@ class Renderer:
         )
 
 
-# ── Utility ──────────────────────────────────────────────────────────────────
-
+# Utility
 def _make_alpha_cmap(color_high: str, color_low: str):
     """
     Costruisce una colormap lineare da color_low (valori bassi, feromone debole)

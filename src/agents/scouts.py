@@ -42,17 +42,15 @@ class Scout1(BaseAgent):
         segnale abbia un unico significato non ambiguo: "qui c'e' un oggetto
         non ancora raccolto, segnalato da uno Scout". I Worker in fase EXPLORE
         seguono questo segnale (peso 'object' nella funzione di utilita') per
-        convergere verso le zone con oggetti reali, senza il paradosso ACO
-        della versione precedente dove la scia puntava verso il magazzino
-        invece che verso la sorgente.
+        convergere verso le zone con oggetti reali.
 
         Valore di deposito (8.0) calibrato deliberatamente piu' basso rispetto
-        al vecchio deposito durante il ritorno (20.0) per due ragioni:
+        ad uno più alto provato (20.0) per due ragioni:
           1. La scoperta avviene una sola volta per oggetto, mentre il vecchio
              deposito si accumulava per tutti i passi del percorso di ritorno.
           2. Un valore basso permette una evaporazione rapida post-raccolta,
-             riducendo il rischio di phantom attraction (Worker attratti verso
-             celle vuote dove l'oggetto e' stato gia' raccolto).
+             riducendo il rischio che i Worker vengano attratti in
+             celle vuote dove l'oggetto e' stato gia' raccolto.
         """
         # Fase 1 + Fase 2: comportamento base (FOUND e EMPTY nella local_map)
         super()._scan_environment(env, tick)

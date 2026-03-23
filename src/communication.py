@@ -6,10 +6,8 @@ def get_agents_in_radius(env, pos, radius, caller_id=None):
     Simula il raggio di rete wireless dell'agente.
     Cerca nell'ambiente gli altri agenti attivi e restituisce quelli a portata.
 
-    FIX: il parametro caller_id permette di escludere l'agente chiamante
-    per identita' (agent.id == caller_id) invece che per posizione
-    (agent.pos == pos). Il vecchio approccio causava esclusione errata
-    quando due agenti si trovavano sulla stessa cella (ad es. durante lo spawn).
+    il parametro caller_id permette di escludere l'agente chiamante
+    per identita' (agent.id == caller_id)
     """
     neighbors = []
 
@@ -29,7 +27,7 @@ def get_agents_in_radius(env, pos, radius, caller_id=None):
 def create_inform_message(sender_id, receiver_id, content):
     """
     Costruisce la struttura standard del messaggio FIPA-ACL
-    (Performative: INFORM) come richiesto dalle direttive del progetto.
+    (Performative: INFORM)
     """
     return {
         'performative': 'INFORM',

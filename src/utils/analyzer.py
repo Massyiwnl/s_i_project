@@ -67,10 +67,6 @@ class SimulationAnalyzer:
         return stats
 
     def _safe_makedirs(self, path):
-        """
-        FIX: os.makedirs con stringa vuota solleva FileNotFoundError su Linux
-        quando output_path e' un nome file senza directory (es. 'output.csv').
-        """
         dir_path = os.path.dirname(path)
         if dir_path:
             os.makedirs(dir_path, exist_ok=True)
@@ -79,10 +75,8 @@ class SimulationAnalyzer:
         """Genera un file CSV con le metriche dettagliate per ogni agente."""
         self._safe_makedirs(output_path)
 
-        # FIX: aggiunto 'Agent_Type' tra le colonne.
-        # La versione originale calcolava il campo 'type' in _compute_agent_stats
-        # ma non lo scriveva mai nel CSV, rendendo impossibile distinguere
-        # le performance per tipo di agente senza incrociare file separati.
+        # aggiunto 'Agent_Type' tra le colonne rendendo possibile distinguere
+        # le performance per tipo di agente.
         headers = [
             'Agent_ID', 'Agent_Type', 'Final_State', 'Battery_Remaining',
             'Distance_Covered', 'Deliveries', 'Abandoned_Objects', 'Ticks_Alive',
@@ -106,7 +100,7 @@ class SimulationAnalyzer:
 
                 row = [
                     data['id'],
-                    data['type'],           # FIX: ora incluso
+                    data['type'],          
                     data['final_state'],
                     data['battery_remaining'],
                     data['distance_covered'],
@@ -123,10 +117,6 @@ class SimulationAnalyzer:
     def generate_global_summary_csv(self, output_path, seed, instance):
         """
         Genera o appende i dati globali della simulazione a un file CSV.
-        FIX: deduplicazione — se esiste gia' una riga con stessa istanza e seed,
-        non viene scritta di nuovo. La versione originale accumulava righe
-        duplicate ad ogni run con gli stessi parametri, inquinando i dati
-        sperimentali.
         """
         self._safe_makedirs(output_path)
         file_exists = os.path.isfile(output_path)
@@ -144,7 +134,7 @@ class SimulationAnalyzer:
             'Total_Abandoned', 'Dead_Agents', 'Total_Distance'
         ]
 
-        # FIX: controllo duplicati prima di scrivere
+        # controllo duplicati prima di scrivere
         if file_exists:
             with open(output_path, 'r', newline='', encoding='utf-8') as f:
                 reader = csv.DictReader(f)
@@ -202,12 +192,6 @@ class SimulationAnalyzer:
             else:
                 last_carrying[idx] = e['carrying']
 
-            # FIX: rimosso il controllo su state == "LOW_BATTERY" che era dead code
-            # permanente: quello stato non esiste nella macchina a stati del progetto.
-            # Gli stati validi sono: EXPLORE, RETRIEVE, RETURN_HOME, RETURN_BASE,
-            # EXIT_WAREHOUSE, DEAD, FINISHED. Il meccanismo di batteria bassa
-            # e' gestito tramite la transizione a RETURN_BASE.
-
             if is_interesting:
                 line = f"{e['tick']:<8} | {idx:<4} | {desc:<25} | {pos:<12} | {batt:<6} | {carrying}"
                 report.append(line)
@@ -220,7 +204,7 @@ class SimulationAnalyzer:
     def get_summary_metrics(self):
         """
         Estrae metriche riassuntive per il feedback rapido.
-        FIX: aggiunge consegne, abbandoni, agenti morti e distanza totale
+        aggiunge consegne, abbandoni, agenti morti e distanza totale
         che erano gia' calcolati in _compute_agent_stats ma non inclusi
         nel dizionario restituito.
         """

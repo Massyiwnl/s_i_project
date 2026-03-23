@@ -19,14 +19,13 @@ class Worker1(BaseAgent):
         self._sync_with_neighbors(env, tick)
         self._scan_environment(env, tick)
 
-        # FIX: usa STRESS_MAX // 2 (=7) da config invece dell'8 hardcoded
         if self.stuck_ticks > STRESS_MAX // 2:
             if self._dodge_step(env):
                 return
 
         # Pickup opportunistico: se l'agente cammina sopra un oggetto
         # durante stati diversi da RETURN_BASE e RETURN_HOME.
-        # FIX: aggiunto RETURN_HOME alla lista di stati esclusi per evitare
+        # Ho aggiunto RETURN_HOME alla lista di stati esclusi per evitare
         # un doppio-pickup dopo che _handle_retrieve ha gia' raccolto l'oggetto.
         if (not self.carrying
                 and self.state not in ['RETURN_BASE', 'RETURN_HOME']
@@ -64,9 +63,9 @@ class Worker1(BaseAgent):
 
     def _has_found_object(self):
         """
-        FIX: restituisce l'oggetto piu' vicino (distanza Manhattan) invece del
-        primo trovato nell'ordine di iterazione del dizionario. La versione
-        originale poteva inviare il worker verso un oggetto lontano ignorandone
+        Restituisce l'oggetto piu' vicino (distanza Manhattan) invece del
+        primo trovato nell'ordine di iterazione del dizionario. C'era il rischio di
+        inviare il worker verso un oggetto lontano ignorandone
         uno adiacente, riducendo l'efficienza della fase di recupero.
         """
         best_obj = None
@@ -92,11 +91,7 @@ class Worker1(BaseAgent):
 
     def _handle_retrieve(self, env):
         """
-        FIX: raccolta atomica nel tick in cui l'agente raggiunge il target.
-        La versione originale segnava TAKEN nella local_map ma non chiamava
-        pick_up_object ne' impostava carrying=True nello stesso tick, creando
-        una finestra di race condition in cui un altro agente poteva raccogliere
-        l'oggetto nel tick intermedio.
+        Raccolta atomica nel tick in cui l'agente raggiunge il target.
         """
         if self.local_map.get(self.target_obj, {}).get('status') == 'TAKEN':
             self.state = 'EXPLORE'
@@ -155,10 +150,8 @@ class Worker1(BaseAgent):
 
     def _handle_exit_warehouse(self, env):
         """
-        FIX: usa self.pos == wh['entrance'] e self.pos == wh['exit'] per
+        uso self.pos == wh['entrance'] e self.pos == wh['exit'] per
         confrontare tuple con tuple (dopo la normalizzazione in environment.load).
-        La versione originale usava list(self.pos) == wh['entrance'] che
-        falliva dopo la normalizzazione a tuple.
         """
         current_wh = None
         for wh in env.warehouses:

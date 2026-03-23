@@ -15,7 +15,7 @@ def _segment_clear(env, from_r, from_c, to_r, to_c):
 
     r, c = from_r + dr, from_c + dc
     while True:
-        # FIX: bounds check esplicito prima di accedere a env.grid
+        # bounds check esplicito prima di accedere a env.grid
         # Senza questo, indici negativi (es. r=-1) NON sollevano IndexError
         # in Python ma accedono all'ultima riga/colonna silenziosamente,
         # producendo LOS errata sui bordi della griglia.
@@ -33,10 +33,10 @@ def has_line_of_sight(env, r1, c1, r2, c2):
     """
     Controllo LOS a forma di L (Manhattan con occlusione).
 
-    FIX 1: bounds check in _segment_clear previene accesso a grid[-1].
-    FIX 2: controlla TUTTE le celle intermedie lungo entrambi i percorsi a L,
-           non solo la prima e l'ultima. Questo corregge il bug per cui oggetti
-           separati da due muri consecutivi risultavano visibili.
+    bounds check in _segment_clear previene accesso a grid[-1].
+    controlla TUTTE le celle intermedie lungo entrambi i percorsi a L,
+    non solo la prima e l'ultima. Questo corregge il bug per cui oggetti
+    separati da due muri consecutivi possono risultare visibili.
 
     Logica: dati due punti, esistono due percorsi a L:
       - Path 1: prima verticale (r1,c1)->(r2,c1), poi orizzontale (r2,c1)->(r2,c2)
@@ -80,6 +80,3 @@ def get_visible_objects(env, r, c, radius):
                     if env.is_object_at(nr, nc) and has_line_of_sight(env, r, c, nr, nc):
                         visible.append((nr, nc))
     return visible
-
-# FIX: detect_adjacent_agents e detect_agents_in_radius erano dead code
-# (non chiamate in nessun modulo del progetto). Rimosse per pulizia.

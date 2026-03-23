@@ -159,12 +159,12 @@ class BaseAgent:
         env.pheromone_explore[self.pos[0]][self.pos[1]] += 10.0
         env.active_pheromone_cells.add(self.pos)
 
-        # NOTA: pheromone_object NON viene piu' depositato qui.
+        # NOTA: pheromone_object NON viene depositato.
         # Il deposito e' responsabilita' esclusiva degli Scout in _scan_environment:
         # solo loro lo depositano sulla cella esatta degli oggetti scoperti.
         # Questo garantisce che il segnale pheromone_object significhi sempre e solo
         # "qui c'e' un oggetto non ancora raccolto", senza ambiguita' con le scie
-        # di ritorno al magazzino che producevano il paradosso ACO precedente.
+        # di ritorno al magazzino che producevano il paradosso ACO.
 
         # Registro del passaggio per la heatmap dei colli di bottiglia.
         env.log_movement(self.pos[0], self.pos[1])

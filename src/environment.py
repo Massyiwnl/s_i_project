@@ -91,7 +91,7 @@ class Environment:
 
     def _init_base_gradient(self):
         """
-        Gradiente BFS statico verso lo spawn (0,0) per il ritorno sicuro.
+        Gradiente statico verso lo spawn (0,0) per il ritorno sicuro.
         """
         self.pheromone_base = [[0.0] * self.n for _ in range(self.n)]
         max_val = float(self.n * self.n)

@@ -16,7 +16,7 @@ def analyze_configuration(instance_name):
     # Matrice per la heatmap dei punti di consegna (traffic_log)
     delivery_heatmap = np.zeros((GRID_SIZE, GRID_SIZE))
 
-    # Matrice per la vera heatmap dei colli di bottiglia (movement_log)
+    # Matrice per la heatmap dei colli di bottiglia (movement_log)
     movement_heatmap = np.zeros((GRID_SIZE, GRID_SIZE))
 
     for seed in SEEDS:
@@ -70,8 +70,8 @@ def analyze_configuration(instance_name):
               f"Hai avviato run_configs.py prima?")
         return
 
-    # --- REPORT STATISTICO ---
-    print(f"\n===== REPORT STATISTICO - CONFIGURAZIONE (Istanza {instance_name}) =====")
+    # REPORT STATISTICO
+    print(f"\nREPORT STATISTICO - CONFIGURAZIONE (Istanza {instance_name})")
     print(f"Run analizzate:          {len(ticks)}")
     print(f"Oggetti Consegnati:      {np.mean(delivered):.2f} ± {np.std(delivered):.2f} "
           f"(su 10)")
@@ -92,7 +92,7 @@ def analyze_configuration(instance_name):
 
     os.makedirs('outputs/heatmaps', exist_ok=True)
 
-    # --- HEATMAP 1: PUNTI DI CONSEGNA ---
+    # HEATMAP 1: PUNTI DI CONSEGNA 
     # Mostra le celle di magazzino in cui gli oggetti sono stati effettivamente
     # depositati. Traccia la distribuzione del carico tra i magazzini disponibili.
     fig1 = plt.figure(figsize=(10, 8))
@@ -113,7 +113,7 @@ def analyze_configuration(instance_name):
     plt.close(fig1)
     print(f"--> Heatmap Punti di Consegna salvata in: {out_path1}")
 
-    # --- HEATMAP 2: COLLI DI BOTTIGLIA (traffico reale) ---
+    # HEATMAP 2: COLLI DI BOTTIGLIA (traffico reale) 
     # Mostra le celle piu' attraversate da tutti gli agenti durante il movimento.
     # Le zone rosse intense sono i veri colli di bottiglia della mappa:
     # corridoi obbligati, incroci critici, zone ad alta densita' di transito.
@@ -138,5 +138,4 @@ def analyze_configuration(instance_name):
 
 if __name__ == '__main__':
     #analyze_configuration('A')
-    # Per analizzare l'istanza B (configurazione C3), decommentare:
     analyze_configuration('B')

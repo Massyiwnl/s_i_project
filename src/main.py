@@ -19,7 +19,7 @@ def main():
     parser.add_argument('--instance', type=str, default='A', choices=['A', 'B', 'A2'])
     parser.add_argument('--seed', type=int, default=SEED)
     parser.add_argument('--gui', action='store_true')
-    # FIX: aggiunto --no-gui per disabilitare esplicitamente il renderer
+    # aggiunto --no-gui per disabilitare esplicitamente il renderer
     # da riga di comando. Necessario per run_configs.py che lancia main.py
     # in subprocess: senza questo flag, config.GUI=True apre una finestra
     # matplotlib bloccante per ogni run, impedendo l'esecuzione automatica.
@@ -36,7 +36,7 @@ def main():
 
     logger = Logger()
 
-    # FIX: --no-gui ha precedenza assoluta su --gui e su config.GUI
+    # --no-gui ha precedenza assoluta su --gui e su config.GUI
     if args.no_gui:
         use_gui = False
     elif args.gui:
