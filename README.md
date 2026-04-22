@@ -358,7 +358,7 @@ python experiments/run_configs.py
 
 ```bash
 # Genera report statistico e due heatmap (consegne + colli di bottiglia)
-python experiments/analyze_results.py
+python -m experiments.analyze_results
 ```
 
 ### Visualizzazione statica della mappa
